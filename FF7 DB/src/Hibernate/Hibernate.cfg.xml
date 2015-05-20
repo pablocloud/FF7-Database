@@ -9,7 +9,6 @@
     <property name="hibernate.connection.password"></property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <mapping resource="Hibernate/POJO/Opiniones.hbm.xml"/>
     <mapping resource="Hibernate/POJO/Enemigos.hbm.xml"/>
     <mapping resource="Hibernate/POJO/Personajessecundarios.hbm.xml"/>
     <mapping resource="Hibernate/POJO/Personajes.hbm.xml"/>
