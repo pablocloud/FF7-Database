@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-may-2015 20:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.POJO.Armas" table="armas" catalog="ff7" optimistic-lock="version">
+        <id name="nombre" type="string">
+            <column name="nombre" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="ataque" type="int">
+            <column name="ataque" not-null="true" />
+        </property>
+        <property name="golpe" type="string">
+            <column name="golpe" length="100" not-null="true" />
+        </property>
+        <property name="materia" type="string">
+            <column name="materia" length="100" not-null="true" />
+        </property>
+        <property name="materia2" type="string">
+            <column name="materia2" length="100" not-null="true" />
+        </property>
+        <property name="materia3" type="string">
+            <column name="materia3" length="100" not-null="true" />
+        </property>
+        <property name="materia4" type="string">
+            <column name="materia4" length="100" not-null="true" />
+        </property>
+        <property name="materia5" type="string">
+            <column name="materia5" length="100" not-null="true" />
+        </property>
+        <property name="materia6" type="string">
+            <column name="materia6" length="100" not-null="true" />
+        </property>
+        <property name="materia7" type="string">
+            <column name="materia7" length="100" not-null="true" />
+        </property>
+        <property name="materia8" type="string">
+            <column name="materia8" length="100" not-null="true" />
+        </property>
+        <property name="materia9" type="string">
+            <column name="materia9" length="100" not-null="true" />
+        </property>
+        <property name="localizacion" type="string">
+            <column name="localizacion" length="100" not-null="true" />
+        </property>
+        <property name="coste" type="int">
+            <column name="coste" not-null="true" />
+        </property>
+        <property name="notas" type="string">
+            <column name="notas" length="100" not-null="true" />
+        </property>
+        <property name="equipadopor" type="string">
+            <column name="equipadopor" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

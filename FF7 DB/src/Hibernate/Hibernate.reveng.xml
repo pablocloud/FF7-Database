@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="ff7"/>
+  <table-filter match-name="objetos"/>
+  <table-filter match-name="enemigos"/>
+  <table-filter match-name="personajes"/>
+  <table-filter match-name="opiniones"/>
+  <table-filter match-name="canciones"/>
+  <table-filter match-name="personajessecundarios"/>
+  <table-filter match-name="materia"/>
+  <table-filter match-name="armas"/>
+</hibernate-reverse-engineering>

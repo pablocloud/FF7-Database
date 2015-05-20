@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-may-2015 20:43:41 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Hibernate.POJO.Personajessecundarios" table="personajessecundarios" catalog="ff7" optimistic-lock="version">
+        <id name="nombre" type="string">
+            <column name="nombre" length="100" />
+            <generator class="assigned" />
+        </id>
+        <property name="ocupacion" type="string">
+            <column name="ocupacion" length="100" not-null="true" />
+        </property>
+        <property name="fechana" type="string">
+            <column name="fechana" length="100" not-null="true" />
+        </property>
+        <property name="lugarna" type="string">
+            <column name="lugarna" length="100" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

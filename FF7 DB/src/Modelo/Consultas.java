@@ -6,5 +6,5 @@ package Modelo;
  */
 
 public class Consultas {
-    
+      
 }
