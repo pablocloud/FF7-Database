@@ -16,6 +16,9 @@ public class Controlador {
         this.p = p;
     }
     
+    /**
+     * Este método inicializa los listeners y los parámetros iniciales para el programa.
+     */
     public void iniciar(){
         p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         p.setVisible(true);
