@@ -40,6 +40,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         adicionalEnemigo = new javax.swing.JTextArea();
         jSeparator2 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablaPersonajes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FF7 DB");
@@ -123,6 +126,36 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Enemigos", jPanel1);
 
+        tablaPersonajes.setAutoCreateRowSorter(true);
+        tablaPersonajes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane4.setViewportView(tablaPersonajes);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 495, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Personajes", jPanel2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -184,14 +217,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public javax.swing.JLabel imagenEnemigos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JList listaEnemigos;
     public javax.swing.JLabel nombreEnemigoYNivel;
     public javax.swing.JTable tablaDatosEnemigos;
+    public javax.swing.JTable tablaPersonajes;
     // End of variables declaration//GEN-END:variables
 }

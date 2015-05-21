@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Extensiones.RenderizadorImagenTabla;
 import Hibernate.POJO.Armas;
 import Hibernate.POJO.Canciones;
 import Hibernate.POJO.Enemigos;
@@ -52,10 +53,20 @@ public class Controlador {
     public void iniciar(){
         p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         recogerTodo();
-        m.creacionDeCaches(enemigos);
+        m.creacionDeCaches(enemigos,personajes);
         
         //Asignamos el modelo a la lista de enemigos.
         p.listaEnemigos.setModel(m.modeloListaEnemigos(enemigos));
+        /*Asignamos el modelo a la tabla de los personajes, también le asignamos el renderizador
+        de la imagen y su ancho y altura.
+        */
+        p.tablaPersonajes.setModel(m.modeloTablaPersonajes(personajes));
+        p.tablaPersonajes.getColumnModel().getColumn(0).setCellRenderer(new RenderizadorImagenTabla());
+        p.tablaPersonajes.setRowHeight(100);
+        p.tablaPersonajes.getColumnModel().getColumn(0).setWidth(100);
+        p.tablaPersonajes.getColumnModel().getColumn(0).setMaxWidth(100);
+        p.tablaPersonajes.getColumnModel().getColumn(0).setMinWidth(100);
+        p.tablaPersonajes.getColumnModel().getColumn(0).setWidth(100);
         
         //Listener que se encargara de mostrar un enemigo al seleccionarlo en la lista.
         p.listaEnemigos.addListSelectionListener((ListSelectionEvent) -> {

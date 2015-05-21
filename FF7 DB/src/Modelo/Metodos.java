@@ -2,6 +2,7 @@
 package Modelo;
 
 import Hibernate.POJO.Enemigos;
+import Hibernate.POJO.Personajes;
 import Vista.VistaPrincipal;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -80,7 +81,7 @@ public class Metodos {
      * @param enemigos 
      * La lista de los enemigos.
      */
-    public void creacionDeCaches(ArrayList<Enemigos> enemigos){
+    public void creacionDeCaches(ArrayList<Enemigos> enemigos,ArrayList<Personajes> personajes){
         //Primero comprobaremos el directorio caches.
         File cache = new File("cache");
         //Se creara solo si no existe.
@@ -91,17 +92,33 @@ public class Metodos {
         if(imagenes.exists() == false){
             imagenes.mkdir();
         }
+        //Creacion de la cache de las imagenes de los enemigos.
         File imagenesEnemigos = new File("cache/imagenes/enemigos");
         if(imagenesEnemigos.exists() == false){
             imagenesEnemigos.mkdir();
         }
-        //Creacion de la cache de las imagenes de los enemigos.
         enemigos.stream().forEach((enemigo) -> {
             File imagen = new File("cache/"+enemigo.getImagen());
             if (imagen.exists() == false) {
                 try {
                     BufferedImage read = ImageIO.read(new URL("http://swimpee.eu/personal/ff7db/"+enemigo.getImagen()));
                     ImageIO.write(read, "png", new File("cache/"+enemigo.getImagen()));
+                } catch (IOException ex) {
+                    Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
+        //Creacion de la cache de las imagenes de los personajes.
+        File imagenesPersonajes = new File("cache/imagenes/personajes");
+        if(imagenesPersonajes.exists() == false){
+            imagenesPersonajes.mkdir();
+        }
+        personajes.stream().forEach((personaje) -> {
+            File imagen = new File("cache/"+personaje.getImagen());
+            if (imagen.exists() == false) {
+                try {
+                    BufferedImage read = ImageIO.read(new URL("http://swimpee.eu/personal/ff7db/"+personaje.getImagen()));
+                    ImageIO.write(read, "png", new File("cache/"+personaje.getImagen()));
                 } catch (IOException ex) {
                     Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -123,6 +140,38 @@ public class Metodos {
             modelo.addColumn("GIL");
             modelo.addColumn("AP");
             modelo.addRow(datos);
+        return modelo;
+    }
+    
+    public DefaultTableModel modeloTablaPersonajes(ArrayList<Personajes> personajes){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            //Con esto haremos que no sea editable la tabla.
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+            modelo.addColumn("Imagen");
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Arma");
+            modelo.addColumn("Ocupación");
+            modelo.addColumn("Lugar de nacimiento");
+            modelo.addColumn("Fecha de nacimiento");
+            Object[] fila = new Object[6];
+            personajes.stream().forEach((personaje) ->{
+            try {
+                BufferedImage read = ImageIO.read(new File("cache/"+personaje.getImagen()));
+                fila[0] = new ImageIcon(read.getScaledInstance(100, 100, BufferedImage.SCALE_SMOOTH));
+            } catch (IOException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                fila[1] = personaje.getNombre();
+                fila[2] = personaje.getArma();
+                fila[3] = personaje.getOcupacion();
+                fila[4] = personaje.getLugarna();
+                fila[5] = personaje.getFechana();
+                modelo.addRow(fila);
+            });
         return modelo;
     }
     
