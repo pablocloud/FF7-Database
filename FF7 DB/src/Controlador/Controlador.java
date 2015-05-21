@@ -12,8 +12,6 @@ import Modelo.Consultas;
 import Modelo.Metodos;
 import Vista.VistaPrincipal;
 import java.util.ArrayList;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 
 /**
  * @author Pablo

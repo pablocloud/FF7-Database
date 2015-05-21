@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
+import javax.swing.table.DefaultTableModel;
 
 /**
  * @author Pablo
@@ -44,20 +45,25 @@ public class Metodos {
      */
     public void mostrarEnemigo(Enemigos e, VistaPrincipal p){
         //Obtendremos los campos de los enemigos para un uso mas comodo.
+        //Creamos este array para enviarselo luego al modelo de la tabla.
+        Object[] datos = new Object[5];
+            datos[0] = e.getPg();
+            datos[1] = e.getMp();
+            datos[2] = e.getExp();
+            datos[3] = e.getGil();
+            datos[4] = e.getAp();
         String absorve = e.getAbsorve();
-        int ap = e.getAp();
         String debil = e.getDebil();
-        int exp = e.getExp();
         String fuerte = e.getFuerte();
-        int gil = e.getGil();
-        String imagen = e.getImagen();
         String inmune = e.getInmune();
-        String jefe = e.getJefe();
-        int mp = e.getMp();
         int nivel = e.getNivel();
         String nombre = e.getNombre();
-        int pg = e.getPg();
-        p.nombreEnemigoYNivel.setText(nombre);
+        p.nombreEnemigoYNivel.setText(nombre+", Nivel "+nivel+".");
+        p.tablaDatosEnemigos.setModel(modeloTablaDatosEnemigos(datos));
+        p.adicionalEnemigo.setText("Es débil a : "+debil+".\n");
+        p.adicionalEnemigo.append("Resiste a : "+fuerte+".\n");
+        p.adicionalEnemigo.append("Absorve : "+absorve+".\n");
+        p.adicionalEnemigo.append("En inmune : "+inmune+".\n");
         try {
             //Leemos la imagen de la carpeta cache.
             BufferedImage read = ImageIO.read(new File("cache/"+e.getImagen()));
@@ -101,6 +107,23 @@ public class Metodos {
                 }
             }
         });
+    }
+    
+    private DefaultTableModel modeloTablaDatosEnemigos(Object[] datos){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            //Con esto haremos que no sea editable la tabla.
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+            modelo.addColumn("PG");
+            modelo.addColumn("PM");
+            modelo.addColumn("EXP");
+            modelo.addColumn("GIL");
+            modelo.addColumn("AP");
+            modelo.addRow(datos);
+        return modelo;
     }
     
 }
