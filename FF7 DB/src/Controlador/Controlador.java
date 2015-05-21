@@ -53,10 +53,12 @@ public class Controlador {
     public void iniciar(){
         p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         recogerTodo();
+        //Crea la cache para las imagenes del programa.
         m.creacionDeCaches(enemigos,personajes);
-        
         //Asignamos el modelo a la lista de enemigos.
         p.listaEnemigos.setModel(m.modeloListaEnemigos(enemigos));
+        //Asignamos el modelo a la lista de armas.
+        p.listaArmas.setModel(m.modeloListaArmas(armas));
         /*Asignamos el modelo a la tabla de los personajes, también le asignamos el renderizador
         de la imagen y su ancho y altura.
         */
@@ -74,8 +76,9 @@ public class Controlador {
             m.mostrarEnemigo(e, p);
         });
         
-        //Preseleccionaremos el primer valor de la lista.
+        //Preseleccionaremos el primer valor de todas las listas.
         p.listaEnemigos.setSelectedIndex(0);
+        p.listaArmas.setSelectedIndex(0);
         
         p.setVisible(true);
     }
@@ -93,6 +96,5 @@ public class Controlador {
         personajes = c.recogerPersonajes();
         personajessecundarios = c.recogerPersonajessecundarios();
     }
-    
     
 }

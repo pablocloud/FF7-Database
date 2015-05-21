@@ -1,12 +1,14 @@
 
 package Modelo;
 
+import Hibernate.POJO.Armas;
 import Hibernate.POJO.Enemigos;
 import Hibernate.POJO.Personajes;
 import Vista.VistaPrincipal;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -30,6 +32,21 @@ public class Metodos {
      * Devuelve el defaultlistmodel
      */
     public DefaultListModel modeloListaEnemigos(ArrayList<Enemigos> lista){
+        DefaultListModel modelo = new DefaultListModel();
+        lista.stream().forEach((e) -> {
+            modelo.addElement(e.getNombre());
+        });
+        return modelo;
+    }
+    
+    /**
+     * Crea el modelo para la lista de armas.
+     * @param lista
+     * Arraylist de las armas
+     * @return 
+     * Devuelve el defaultlistmodel
+     */
+    public DefaultListModel modeloListaArmas(ArrayList<Armas> lista){
         DefaultListModel modelo = new DefaultListModel();
         lista.stream().forEach((e) -> {
             modelo.addElement(e.getNombre());
@@ -80,6 +97,8 @@ public class Metodos {
      * Se usará en el primer inicio o si el usuario borrar por error la carpeta caché.
      * @param enemigos 
      * La lista de los enemigos.
+     * @param personajes
+     * La lista de los personajes
      */
     public void creacionDeCaches(ArrayList<Enemigos> enemigos,ArrayList<Personajes> personajes){
         //Primero comprobaremos el directorio caches.
@@ -124,6 +143,44 @@ public class Metodos {
                 }
             }
         });
+        //Creación de cache de las imagenes de las ranuras de las armas.
+        File imagenesRanuras = new File("cache/imagenes/ranuras");
+        if(imagenesRanuras.exists() == false){
+            imagenesRanuras.mkdir();
+        }
+        File ranura = new File("cache/imagenes/ranuras/1-nolink.gif");
+        if(ranura.exists() == false){
+            try {
+                BufferedImage read = ImageIO.read(new URL("http://swimpee.eu/personal/ff7db/imagenes/ranuras/1-nolink.gif"));
+                ImageIO.write(read, "png", new File("cache/imagenes/ranuras/1-nolink.gif"));
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        ranura = new File("cache/imagenes/ranuras/2-link.gif");
+        if(ranura.exists() == false){
+            try {
+                BufferedImage read = ImageIO.read(new URL("http://swimpee.eu/personal/ff7db/imagenes/ranuras/2-link.gif"));
+                ImageIO.write(read, "png", new File("cache/imagenes/ranuras/2-link.gif"));
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        ranura = new File("cache/imagenes/ranuras/blanco.png");
+        if(ranura.exists() == false){
+            try {
+                BufferedImage read = ImageIO.read(new URL("http://swimpee.eu/personal/ff7db/imagenes/ranuras/blanco.png"));
+                ImageIO.write(read, "png", new File("cache/imagenes/ranuras/blanco.png"));
+            } catch (MalformedURLException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
     
     private DefaultTableModel modeloTablaDatosEnemigos(Object[] datos){
