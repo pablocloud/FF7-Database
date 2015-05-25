@@ -12,7 +12,11 @@ import Hibernate.POJO.Personajessecundarios;
 import Modelo.Consultas;
 import Modelo.Metodos;
 import Vista.VistaPrincipal;
+import java.awt.Color;
+import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  * @author Pablo
@@ -70,7 +74,45 @@ public class Controlador {
         p.tablaPersonajes.getColumnModel().getColumn(0).setMinWidth(100);
         p.tablaPersonajes.getColumnModel().getColumn(0).setWidth(100);
         
+        //Modelo y atributos tabla materia.
         p.tablaMaterias.setModel(m.modeloTablaMaterias(materia));
+        p.tablaMaterias.setDefaultRenderer(Object.class, new DefaultTableCellRenderer(){
+            @Override
+            public Component getTableCellRendererComponent(JTable table,
+                    Object value, boolean isSelected, boolean hasFocus, int row, int col) {
+
+                super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
+
+                String valor = (String)table.getModel().getValueAt(row, 1);
+                if (null != valor) switch (valor) {
+                    case "Magia":
+                        setBackground(Color.GREEN);
+                        setForeground(Color.BLACK);
+                        break;
+                    case "Independiente":
+                        setBackground(Color.PINK);
+                        setForeground(Color.BLACK);
+                        break;
+                    case "Invocacion":
+                        setBackground(Color.RED);
+                        setForeground(Color.BLACK);
+                        break;
+                    case "Apoyo":
+                        setBackground(Color.BLUE);
+                        setForeground(Color.WHITE);
+                        break;
+                    case "Comando":
+                        setBackground(Color.YELLOW);
+                        setForeground(Color.BLACK);
+                        break;
+                    default:
+                        setBackground(table.getBackground());
+                        setForeground(table.getForeground());
+                        break;
+                }       
+                return this;
+            }   
+        });
         
         //Listener que se encargara de mostrar un enemigo al seleccionarlo en la lista.
         p.listaEnemigos.addListSelectionListener((ListSelectionEvent) -> {
@@ -87,6 +129,7 @@ public class Controlador {
         p.listaEnemigos.setSelectedIndex(0);
         p.listaArmas.setSelectedIndex(0);
         
+        p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         p.setVisible(true);
     }
     
