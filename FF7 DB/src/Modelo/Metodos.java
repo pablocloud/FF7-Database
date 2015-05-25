@@ -5,6 +5,7 @@ import Extensiones.RenderizadorImagenTabla;
 import Hibernate.POJO.Armas;
 import Hibernate.POJO.Enemigos;
 import Hibernate.POJO.Materia;
+import Hibernate.POJO.Objetos;
 import Hibernate.POJO.Personajes;
 import Vista.VistaPrincipal;
 import java.awt.image.BufferedImage;
@@ -335,6 +336,13 @@ public class Metodos {
         return modelo;
     }
     
+    /**
+     * Modelo de tabla par alas materias.
+     * @param materias
+     * Arraylist de las materias.
+     * @return 
+     * Devuelve el defaulttablemodel.
+     */
     public DefaultTableModel modeloTablaMaterias(ArrayList<Materia> materias){
         DefaultTableModel modelo = new DefaultTableModel(){
             //Con esto haremos que no sea editable la tabla.
@@ -351,6 +359,32 @@ public class Metodos {
                 fila[0] = mat.getNombre();
                 fila[1] = mat.getTipo();
                 fila[2] = mat.getDescripcion();
+            modelo.addRow(fila);
+            });
+        return modelo;
+    }
+    
+    /**
+     * Modelo de tabla para los objetos.
+     * @param objetos
+     * Arraylist de objetos a mostrar.
+     * @return 
+     * Devuelve el defaulttablemodel con los datos.
+     */
+    public DefaultTableModel modeloTablaObjetos(ArrayList<Objetos> objetos){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            //Con esto haremos que no sea editable la tabla.
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Descripción");
+            Object[] fila = new Object[2];
+            objetos.stream().forEach((obj) -> {
+                fila[0] = obj.getNombre();
+                fila[1] = obj.getDescripcion();
             modelo.addRow(fila);
             });
         return modelo;

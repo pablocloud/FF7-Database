@@ -114,6 +114,9 @@ public class Controlador {
             }   
         });
         
+        //Modelo de la tabla de objetos.
+        p.tablaObjetos.setModel(m.modeloTablaObjetos(objetos));
+        
         //Listener que se encargara de mostrar un enemigo al seleccionarlo en la lista.
         p.listaEnemigos.addListSelectionListener((ListSelectionEvent) -> {
             Enemigos e = enemigos.get(p.listaEnemigos.getSelectedIndex());
@@ -132,7 +135,6 @@ public class Controlador {
         p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         p.setVisible(true);
     }
-    
     
     /**
      * Este método recoge toda la base de datos.

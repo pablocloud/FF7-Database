@@ -59,6 +59,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tablaMaterias = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tablaObjetos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FF7 DB");
@@ -284,6 +287,36 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Materia", jPanel4);
 
+        tablaObjetos.setAutoCreateRowSorter(true);
+        tablaObjetos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane10.setViewportView(tablaObjetos);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 671, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Objetos", jPanel5);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -349,7 +382,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -370,6 +405,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public javax.swing.JTable tablaDatosArmas;
     public javax.swing.JTable tablaDatosEnemigos;
     public javax.swing.JTable tablaMaterias;
+    public javax.swing.JTable tablaObjetos;
     public javax.swing.JTable tablaPersonajes;
     public javax.swing.JTable tablaRanurasArma;
     public javax.swing.JLabel txtNombreArma;
