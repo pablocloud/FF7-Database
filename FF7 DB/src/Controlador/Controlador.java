@@ -70,10 +70,17 @@ public class Controlador {
         p.tablaPersonajes.getColumnModel().getColumn(0).setMinWidth(100);
         p.tablaPersonajes.getColumnModel().getColumn(0).setWidth(100);
         
+        p.tablaMaterias.setModel(m.modeloTablaMaterias(materia));
+        
         //Listener que se encargara de mostrar un enemigo al seleccionarlo en la lista.
         p.listaEnemigos.addListSelectionListener((ListSelectionEvent) -> {
             Enemigos e = enemigos.get(p.listaEnemigos.getSelectedIndex());
             m.mostrarEnemigo(e, p);
+        });
+        
+        p.listaArmas.addListSelectionListener((ListSelectionEvent) -> {
+            Armas ar = armas.get(p.listaArmas.getSelectedIndex());
+            m.mostrarArma(ar, p);
         });
         
         //Preseleccionaremos el primer valor de todas las listas.
