@@ -38,7 +38,7 @@ public class Controlador {
     
     /**Constructor de controlador que recibe la vista principal.
      * 
-     * @param p 
+     * @param p
      */
     
     public Controlador(VistaPrincipal p){

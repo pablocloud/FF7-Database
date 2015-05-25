@@ -1,8 +1,10 @@
 
 package Modelo;
 
+import Extensiones.RenderizadorImagenTabla;
 import Hibernate.POJO.Armas;
 import Hibernate.POJO.Enemigos;
+import Hibernate.POJO.Materia;
 import Hibernate.POJO.Personajes;
 import Vista.VistaPrincipal;
 import java.awt.image.BufferedImage;
@@ -90,6 +92,41 @@ public class Metodos {
         } catch (IOException ex) {
             Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    /**
+     * Muestra los datos de un arma en su lugar correspondiente.
+     * @param arma
+     * El arma a mostrar.
+     * @param vp 
+     * Vista principal.
+     */
+    public void mostrarArma(Armas arma, VistaPrincipal vp){
+        String nombre = arma.getNombre();
+        String equipadopor = arma.getEquipadopor();
+        Object[] tabla = new Object[5];
+            tabla[0] = arma.getAtaque();
+            tabla[1] = arma.getGolpe();
+            tabla[2] = arma.getMateria9();
+            tabla[3] = arma.getCoste();
+            tabla[4] = arma.getLocalizacion();
+        vp.tablaDatosArmas.setModel(modeloTablaDatosArma(tabla));
+        tabla = new Object[8];
+            tabla[0] = arma.getMateria();
+            tabla[1] = arma.getMateria2();
+            tabla[2] = arma.getMateria3();
+            tabla[3] = arma.getMateria4();
+            tabla[4] = arma.getMateria5();
+            tabla[5] = arma.getMateria6();
+            tabla[6] = arma.getMateria7();
+            tabla[7] = arma.getMateria8();
+        vp.txtNombreArma.setText(nombre+", "+equipadopor+".");
+        vp.tablaRanurasArma.setModel(modeloTablaRanurasArma(tabla));
+        vp.tablaRanurasArma.setRowHeight(80);
+        for (int i = 0; i < vp.tablaRanurasArma.getColumnCount(); i++) {
+            vp.tablaRanurasArma.getColumnModel().getColumn(i).setCellRenderer(new RenderizadorImagenTabla());
+        }
+        vp.notasArmas.setText(arma.getNotas());
     }
     
     /**
@@ -183,6 +220,13 @@ public class Metodos {
         }
     }
     
+    /**
+     * Modelo de tabla con los datos básicos de los enemigos.
+     * @param datos
+     * Array de datos.
+     * @return 
+     * Devuelve el defaultablemodel.
+     */
     private DefaultTableModel modeloTablaDatosEnemigos(Object[] datos){
         DefaultTableModel modelo = new DefaultTableModel(){
             //Con esto haremos que no sea editable la tabla.
@@ -200,6 +244,13 @@ public class Metodos {
         return modelo;
     }
     
+    /**
+     * Modelo de tabla para los personajes.
+     * @param personajes
+     * Arraylist con los personajes a mostrar.
+     * @return 
+     * Devuelve el defaultablemodel.
+     */
     public DefaultTableModel modeloTablaPersonajes(ArrayList<Personajes> personajes){
         DefaultTableModel modelo = new DefaultTableModel(){
             //Con esto haremos que no sea editable la tabla.
@@ -228,6 +279,79 @@ public class Metodos {
                 fila[4] = personaje.getLugarna();
                 fila[5] = personaje.getFechana();
                 modelo.addRow(fila);
+            });
+        return modelo;
+    }
+    
+    /**
+     * Tabla con los datos básicos de un arma.
+     * @param datos
+     * Array con los datos.
+     * @return 
+     * Devuelve el defaulttablemodel.
+     */
+    private DefaultTableModel modeloTablaDatosArma(Object[] datos){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            //Con esto haremos que no sea editable la tabla.
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+            modelo.addColumn("Ataque");
+            modelo.addColumn("Golpe %");
+            modelo.addColumn("Crecimiento");
+            modelo.addColumn("Coste");
+            modelo.addColumn("Localización");
+            modelo.addRow(datos);
+        return modelo;
+    }
+    
+    private DefaultTableModel modeloTablaRanurasArma(Object[] datos){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            //Con esto haremos que no sea editable la tabla.
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+            modelo.addColumn("Ranura 1");
+            modelo.addColumn("Ranura 2");
+            modelo.addColumn("Ranura 3");
+            modelo.addColumn("Ranura 4");
+            modelo.addColumn("Ranura 5");
+            modelo.addColumn("Ranura 6");
+            modelo.addColumn("Ranura 7");
+            modelo.addColumn("Ranura 8");
+            Object[] fila = new Object[8];
+            for(int i = 0; i < fila.length; i++){
+                try {
+                    fila[i] = new ImageIcon(ImageIO.read(new File("cache/"+datos[i])));
+                } catch (IOException ex) {
+                    Logger.getLogger(Metodos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            modelo.addRow(fila);
+        return modelo;
+    }
+    
+    public DefaultTableModel modeloTablaMaterias(ArrayList<Materia> materias){
+        DefaultTableModel modelo = new DefaultTableModel(){
+            //Con esto haremos que no sea editable la tabla.
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+            modelo.addColumn("Nombre");
+            modelo.addColumn("Tipo");
+            modelo.addColumn("Descripción");
+            Object[] fila = new Object[3];
+            materias.stream().forEach((mat) -> {
+                fila[0] = mat.getNombre();
+                fila[1] = mat.getTipo();
+                fila[2] = mat.getDescripcion();
+            modelo.addRow(fila);
             });
         return modelo;
     }
