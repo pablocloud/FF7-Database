@@ -9,13 +9,17 @@ import Hibernate.POJO.Materia;
 import Hibernate.POJO.Objetos;
 import Hibernate.POJO.Personajes;
 import Hibernate.POJO.Personajessecundarios;
+import Hilos.Reproductor;
 import Modelo.Consultas;
 import Modelo.Metodos;
 import Vista.VistaPrincipal;
 import java.awt.Color;
 import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.event.ChangeEvent;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
@@ -40,8 +44,11 @@ public class Controlador {
     ArrayList<Personajes> personajes;
     ArrayList<Personajessecundarios> personajessecundarios;
     
+    //Hilos
+    Reproductor repro;
+    
+    
     /**Constructor de controlador que recibe la vista principal.
-     * 
      * @param p
      */
     
@@ -55,7 +62,6 @@ public class Controlador {
      * Este método inicializa los listeners y los parámetros iniciales para el programa.
      */
     public void iniciar(){
-        p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         recogerTodo();
         //Crea la cache para las imagenes del programa.
         m.creacionDeCaches(enemigos,personajes);
@@ -63,6 +69,8 @@ public class Controlador {
         p.listaEnemigos.setModel(m.modeloListaEnemigos(enemigos));
         //Asignamos el modelo a la lista de armas.
         p.listaArmas.setModel(m.modeloListaArmas(armas));
+        //Asignamos el modelo a la lista de canciones.
+        p.listaMusica.setModel(m.modeloListaCanciones(canciones));
         /*Asignamos el modelo a la tabla de los personajes, también le asignamos el renderizador
         de la imagen y su ancho y altura.
         */
@@ -131,6 +139,41 @@ public class Controlador {
         //Preseleccionaremos el primer valor de todas las listas.
         p.listaEnemigos.setSelectedIndex(0);
         p.listaArmas.setSelectedIndex(0);
+        p.listaMusica.setSelectedIndex(0);
+        
+        /**
+         * Este listener reproduce la cancion seleccionada de la lista de musica.
+         */
+        p.btnReproducirMusica.addActionListener((ActionEvent) -> {
+            int posicion = p.listaMusica.getSelectedIndex();
+            Canciones can = canciones.get(posicion);
+            if(repro != null && repro.isAlive()){
+                repro.stop();
+            }
+            repro = new Reproductor(can);
+            repro.start();
+        });
+        
+        /**
+         * Este listener para la musica que se este reproduciendo.
+         */
+        p.btnPararMusica.addActionListener((ActionEvent) -> {
+            if(repro != null && repro.isAlive()){
+                repro.stop();
+            }
+        });
+        
+        /**
+         * Listener para detectar los cambios en el tab seleccionado.
+         */
+        p.contenedor.addChangeListener((ChangeEvent e) -> {
+            JTabbedPane panel = (JTabbedPane) e.getSource();
+            //Si seleccionamos el de la musica, avisamos del streaming.
+            if(panel.getSelectedIndex() == 5){
+                JOptionPane.showMessageDialog(panel, 
+                        "Esta función requiere internet, la música se reproduce en streaming.");
+            }
+        });
         
         p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         p.setVisible(true);

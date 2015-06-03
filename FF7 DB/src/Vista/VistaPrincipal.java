@@ -27,7 +27,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        contenedor = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         listaEnemigos = new javax.swing.JList();
@@ -62,6 +62,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         tablaObjetos = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        listaMusica = new javax.swing.JList();
+        btnReproducirMusica = new javax.swing.JButton();
+        btnPararMusica = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FF7 DB");
@@ -143,7 +148,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Enemigos", jPanel1);
+        contenedor.addTab("Enemigos", jPanel1);
 
         tablaPersonajes.setAutoCreateRowSorter(true);
         tablaPersonajes.setModel(new javax.swing.table.DefaultTableModel(
@@ -173,7 +178,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Personajes", jPanel2);
+        contenedor.addTab("Personajes", jPanel2);
 
         listaArmas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane5.setViewportView(listaArmas);
@@ -256,7 +261,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Armas", jPanel3);
+        contenedor.addTab("Armas", jPanel3);
 
         tablaMaterias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -285,7 +290,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Materia", jPanel4);
+        contenedor.addTab("Materia", jPanel4);
 
         tablaObjetos.setAutoCreateRowSorter(true);
         tablaObjetos.setModel(new javax.swing.table.DefaultTableModel(
@@ -315,7 +320,43 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Objetos", jPanel5);
+        contenedor.addTab("Objetos", jPanel5);
+
+        listaMusica.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane11.setViewportView(listaMusica);
+
+        btnReproducirMusica.setText("Reproducir seleccionada");
+
+        btnPararMusica.setText("Parar reproducción");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnReproducirMusica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPararMusica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(btnReproducirMusica)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPararMusica)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
+        contenedor.addTab("Música", jPanel6);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -323,14 +364,14 @@ public class VistaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(contenedor)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1)
+                .addComponent(contenedor)
                 .addContainerGap())
         );
 
@@ -375,6 +416,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JTextArea adicionalEnemigo;
+    public javax.swing.JButton btnPararMusica;
+    public javax.swing.JButton btnReproducirMusica;
+    public javax.swing.JTabbedPane contenedor;
     public javax.swing.JLabel imagenEnemigos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -383,8 +427,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -397,9 +443,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
-    private javax.swing.JTabbedPane jTabbedPane1;
     public javax.swing.JList listaArmas;
     public javax.swing.JList listaEnemigos;
+    public javax.swing.JList listaMusica;
     public javax.swing.JLabel nombreEnemigoYNivel;
     public javax.swing.JTextArea notasArmas;
     public javax.swing.JTable tablaDatosArmas;

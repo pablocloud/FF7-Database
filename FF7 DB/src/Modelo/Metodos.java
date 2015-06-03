@@ -3,6 +3,7 @@ package Modelo;
 
 import Extensiones.RenderizadorImagenTabla;
 import Hibernate.POJO.Armas;
+import Hibernate.POJO.Canciones;
 import Hibernate.POJO.Enemigos;
 import Hibernate.POJO.Materia;
 import Hibernate.POJO.Objetos;
@@ -53,6 +54,21 @@ public class Metodos {
         DefaultListModel modelo = new DefaultListModel();
         lista.stream().forEach((e) -> {
             modelo.addElement(e.getNombre());
+        });
+        return modelo;
+    }
+    
+    /**
+     * Crea el modelo para la lista de canciones.
+     * @param lista
+     * Arraylist de las canciones.
+     * @return 
+     * Devuelve el defaultlistmodelo.
+     */
+    public DefaultListModel modeloListaCanciones(ArrayList<Canciones> lista){
+        DefaultListModel modelo = new DefaultListModel();
+        lista.stream().forEach((can) -> {
+            modelo.addElement(can.getNombre());
         });
         return modelo;
     }
