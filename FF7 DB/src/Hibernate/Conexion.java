@@ -1,6 +1,8 @@
 
 package Hibernate;
 
+import javafx.application.Application;
+import javax.swing.JOptionPane;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 
@@ -14,10 +16,10 @@ public class Conexion {
     static {
         try {
             sessionFactory = new AnnotationConfiguration().configure(Conexion.class.getResource("/Hibernate/Hibernate.cfg.xml")).buildSessionFactory();
-        } catch (Throwable ex) {
+        } catch (Exception ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
+            throw ex;
         }
     }
     

@@ -24,7 +24,7 @@ public class Iniciar {
             UIManager.setLookAndFeel ( new WebLookAndFeel());
             UIManager.setLookAndFeel ( "com.alee.laf.WebLookAndFeel" );
             UIManager.setLookAndFeel ( WebLookAndFeel.class.getCanonicalName());
-            new Controlador(new VistaPrincipal()).iniciar();
+            new Controlador(new VistaPrincipal()).comprobacionesIniciales();
         } catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             Logger.getLogger(Iniciar.class.getName()).log(Level.SEVERE, null, ex);
         }

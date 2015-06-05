@@ -2,6 +2,7 @@
 package Controlador;
 
 import Extensiones.RenderizadorImagenTabla;
+import Hibernate.Conexion;
 import Hibernate.POJO.Armas;
 import Hibernate.POJO.Canciones;
 import Hibernate.POJO.Enemigos;
@@ -13,6 +14,7 @@ import Hilos.Reproductor;
 import Modelo.Consultas;
 import Modelo.Metodos;
 import Vista.VistaPrincipal;
+import com.itextpdf.text.Document;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.IOException;
@@ -48,9 +50,11 @@ public class Controlador {
     ArrayList<Personajes> personajes;
     ArrayList<Personajessecundarios> personajessecundarios;
     
-    //Hilos
+    //HILOS
     Reproductor repro;
     
+    //OTROS
+    Socket internet;
     
     /**Constructor de controlador que recibe la vista principal.
      * @param p
@@ -62,10 +66,21 @@ public class Controlador {
         m = new Metodos();
     }
     
+    public void comprobacionesIniciales(){
+        try {
+            internet = new Socket("www.google.es", 80);
+            iniciar();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(p, "Sin internet, cerrando aplicación.");
+            Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            p.dispose();
+        }
+    }
+    
     /**
      * Este método inicializa los listeners y los parámetros iniciales para el programa.
      */
-    public void iniciar(){
+    private void iniciar(){      
         recogerTodo();
         //Música inicial, para ambient...meh
         repro = new Reproductor(canciones.get(16));
@@ -95,9 +110,7 @@ public class Controlador {
             @Override
             public Component getTableCellRendererComponent(JTable table,
                     Object value, boolean isSelected, boolean hasFocus, int row, int col) {
-
                 super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, col);
-
                 String valor = (String)table.getModel().getValueAt(row, 1);
                 if (null != valor) switch (valor) {
                     case "Magia":
@@ -138,6 +151,7 @@ public class Controlador {
             m.mostrarEnemigo(e, p);
         });
         
+        //Listener que se encargara de mostrar un arma al seleccionala en la lista.
         p.listaArmas.addListSelectionListener((ListSelectionEvent) -> {
             Armas ar = armas.get(p.listaArmas.getSelectedIndex());
             m.mostrarArma(ar, p);
@@ -178,10 +192,24 @@ public class Controlador {
             //Si seleccionamos el de la musica, avisamos del streaming.
             if(panel.getSelectedIndex() == 5){
                 JOptionPane.showMessageDialog(panel, 
-                        "Esta función requiere internet, la música se reproduce en streaming.");
+                        "Esta función usará mas ancho de banda de internet, la música se reproduce en streaming.");
             }
         });
         
+        /**
+         * Listener para generar un pdf de un enemigo. Menu en el click derecho del raton sobre la pestaña
+         * de enemigos, en cualquier sitio.
+         */
+        p.enemigoPdf.addActionListener((ActionEvent) -> {
+            Enemigos e = enemigos.get(p.listaEnemigos.getSelectedIndex());
+            Document pdf = new Document();
+            pdf.open();
+            pdf.addTitle(e.getNombre());
+            pdf.close();
+            
+        });
+        
+        //Maximizamos la ventana por defecto y la mostramos ya con todos los datos cargados.
         p.setExtendedState(VistaPrincipal.MAXIMIZED_BOTH);
         p.setVisible(true);
     }
@@ -190,12 +218,19 @@ public class Controlador {
      * Este método recoge toda la base de datos.
      */
     private void recogerTodo(){
+        try{
+            Conexion.getSessionFactory().openSession().close();
+        }catch (Exception e){
+            System.out.println("Sin internet.");
+            p.dispose();
+        }
         armas = c.recogerArmas();
         canciones = c.recogerCanciones();
         enemigos = c.recogerEnemigos();
         materia = c.recogerMateria();
         objetos = c.recogerObjetos();
         personajes = c.recogerPersonajes();
+        //Esta colección aun no se usa, pero se usará mas adelante.
         personajessecundarios = c.recogerPersonajessecundarios();
     }
     

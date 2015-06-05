@@ -27,6 +27,8 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        menuRatonEnemigos = new javax.swing.JPopupMenu();
+        enemigoPdf = new javax.swing.JMenuItem();
         contenedor = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -68,8 +70,13 @@ public class VistaPrincipal extends javax.swing.JFrame {
         btnReproducirMusica = new javax.swing.JButton();
         btnPararMusica = new javax.swing.JButton();
 
+        enemigoPdf.setText("Generar pdf de este enemigo.");
+        menuRatonEnemigos.add(enemigoPdf);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("FF7 DB");
+
+        jPanel1.setComponentPopupMenu(menuRatonEnemigos);
 
         listaEnemigos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(listaEnemigos);
@@ -142,7 +149,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                                 .addComponent(jScrollPane3)))
                         .addGap(18, 18, 18)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 191, Short.MAX_VALUE))
+                        .addGap(0, 197, Short.MAX_VALUE))
                     .addComponent(jScrollPane1)
                     .addComponent(jSeparator1))
                 .addContainerGap())
@@ -174,7 +181,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -256,7 +263,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                     .addComponent(jSeparator3))
                 .addContainerGap())
         );
@@ -286,7 +293,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -316,7 +323,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -352,7 +359,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnPararMusica)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 455, Short.MAX_VALUE))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -419,6 +426,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public javax.swing.JButton btnPararMusica;
     public javax.swing.JButton btnReproducirMusica;
     public javax.swing.JTabbedPane contenedor;
+    public javax.swing.JMenuItem enemigoPdf;
     public javax.swing.JLabel imagenEnemigos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -446,6 +454,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     public javax.swing.JList listaArmas;
     public javax.swing.JList listaEnemigos;
     public javax.swing.JList listaMusica;
+    public javax.swing.JPopupMenu menuRatonEnemigos;
     public javax.swing.JLabel nombreEnemigoYNivel;
     public javax.swing.JTextArea notasArmas;
     public javax.swing.JTable tablaDatosArmas;
