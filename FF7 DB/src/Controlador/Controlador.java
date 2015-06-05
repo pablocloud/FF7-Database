@@ -15,7 +15,11 @@ import Modelo.Metodos;
 import Vista.VistaPrincipal;
 import java.awt.Color;
 import java.awt.Component;
+import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
@@ -63,6 +67,9 @@ public class Controlador {
      */
     public void iniciar(){
         recogerTodo();
+        //Música inicial, para ambient...meh
+        repro = new Reproductor(canciones.get(16));
+        repro.start();
         //Crea la cache para las imagenes del programa.
         m.creacionDeCaches(enemigos,personajes);
         //Asignamos el modelo a la lista de enemigos.
