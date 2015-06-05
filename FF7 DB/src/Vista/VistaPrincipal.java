@@ -79,6 +79,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jPanel1.setComponentPopupMenu(menuRatonEnemigos);
 
         listaEnemigos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaEnemigos.setComponentPopupMenu(menuRatonEnemigos);
         jScrollPane1.setViewportView(listaEnemigos);
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -101,12 +102,15 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
             }
         ));
+        tablaDatosEnemigos.setComponentPopupMenu(menuRatonEnemigos);
         jScrollPane2.setViewportView(tablaDatosEnemigos);
 
+        adicionalEnemigo.setEditable(false);
         adicionalEnemigo.setColumns(20);
         adicionalEnemigo.setLineWrap(true);
         adicionalEnemigo.setRows(5);
         adicionalEnemigo.setWrapStyleWord(true);
+        adicionalEnemigo.setComponentPopupMenu(menuRatonEnemigos);
         jScrollPane3.setViewportView(adicionalEnemigo);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

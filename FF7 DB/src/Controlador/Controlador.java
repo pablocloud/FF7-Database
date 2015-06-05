@@ -15,8 +15,16 @@ import Modelo.Consultas;
 import Modelo.Metodos;
 import Vista.VistaPrincipal;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.ArrayList;
@@ -203,10 +211,23 @@ public class Controlador {
         p.enemigoPdf.addActionListener((ActionEvent) -> {
             Enemigos e = enemigos.get(p.listaEnemigos.getSelectedIndex());
             Document pdf = new Document();
-            pdf.open();
-            pdf.addTitle(e.getNombre());
-            pdf.close();
-            
+            try {
+                PdfWriter.getInstance(pdf, new FileOutputStream(new File(e.getNombre()+".pdf")));
+                pdf.open();
+                Paragraph titulo = new Paragraph(e.getNombre(), new Font(Font.FontFamily.TIMES_ROMAN, 26,
+                Font.BOLD));
+                titulo.setAlignment(Paragraph.ALIGN_CENTER);
+                pdf.add(titulo);
+                pdf.close();
+            } catch (DocumentException | FileNotFoundException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            File archivo = new File(e.getNombre()+".pdf");
+            try {
+                Desktop.getDesktop().open(archivo);
+            } catch (IOException ex) {
+                Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
         
         //Maximizamos la ventana por defecto y la mostramos ya con todos los datos cargados.
