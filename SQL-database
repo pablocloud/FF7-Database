@@ -1,0 +1,899 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNEC
+
+--
+-- Base de datos: `ff7`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `armas`
+--
+
+CREATE TABLE IF NOT EXISTS `armas` (
+  `nombre` varchar(100) NOT NULL,
+  `ataque` int(100) NOT NULL,
+  `golpe` varchar(100) NOT NULL,
+  `materia` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia2` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia3` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia4` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia5` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia6` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia7` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia8` varchar(100) NOT NULL DEFAULT '/imagenes/ranuras/blanco.png',
+  `materia9` varchar(100) NOT NULL,
+  `localizacion` varchar(100) NOT NULL,
+  `coste` int(100) NOT NULL,
+  `notas` varchar(100) NOT NULL DEFAULT 'Largo alcance',
+  `equipadopor` varchar(100) NOT NULL DEFAULT 'Vincent'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `armas`
+--
+
+INSERT INTO `armas` (`nombre`, `ataque`, `golpe`, `materia`, `materia2`, `materia3`, `materia4`, `materia5`, `materia6`, `materia7`, `materia8`, `materia9`, `localizacion`, `coste`, `notas`, `equipadopor`) VALUES
+('Aguja diamantada', 33, '102%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Gongaga)', 1300, '-', 'Red XIII'),
+('Alma poder', 28, '106%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Monte Nibel), Tienda (Junon-Cd2)', 4200, '-', 'Tifa'),
+('Anillo corte', 49, '105%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 6000, 'Largo alcance', 'Yuffie'),
+('Apocalipsis', 93, '110%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Triple', 'Encontrado (Bosque anciano)', 0, '-', 'Cloud'),
+('Arma abrir', 14, '97%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, 'Largo alcance', 'Barret'),
+('Arma asalto', 17, '97%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Batalla contra Escorpión Guardián, Tienda (Mercado Muro)', 350, 'Largo alcance', 'Barret'),
+('Arma última', 100, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Ganado (Batalla contra Arma última)', 0, '-', 'Cloud'),
+('Armazón', 68, '118%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Templo de los ancianos), Tienda (Junon-Cd2)', 3000, '-', 'Cait Sith'),
+('Bala', 48, '112%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Ciudad cohete)', 3100, 'Largo alcance', 'Vincent'),
+('Bala cañón', 23, '98%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Kalm)', 950, 'Largo alcance', 'Barret'),
+('Barrera de oro', 50, '104%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 6000, '-', 'Red XIII'),
+('Barrera de plata', 40, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Acantilado De Gaea)', 0, '-', 'Red XIII'),
+('Barrera plus', 39, '104%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Tienda (Junon-cd2)', 3500, '-', 'Red XIII'),
+('Bazuka sólido', 61, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Costa del sol-cd2)', 3200, 'Largo alcance', 'Barret'),
+('Borde duro', 32, '98%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon y Gongaga)', 1500, '-', 'Cloud'),
+('Borde mariposa', 39, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Cañon cosmo)', 2800, '-', 'Cloud'),
+('Bumerán', 30, '101%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon y Gongaga)', 1400, 'Largo alcance', 'Yuffie'),
+('Cañón a-m', 77, '103%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 18000, 'Largo alcance', 'Barret'),
+('Cañón corto', 51, '118%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 6400, 'Largo alcance', 'Vincent'),
+('Cañón largo r', 66, '255%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Costa del sol)', 13000, 'Largo alcance', 'Vincent'),
+('Centclip', 58, '108%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'Normal', 'Tienda (Junon-cd2)', 14000, '-', 'Red XIII'),
+('Cimitarra', 86, '102%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Triple', 'Encontrado (Reactor submarino de junon)', 0, '-', 'Cid'),
+('Clip adamán', 60, '106%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Iciclos)', 11000, '-', 'Red XIII'),
+('Clip mitrilo', 24, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, '-', 'Red XIII'),
+('Clip pistola', 87, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Bosque de los ancianos)', 0, '-', 'Red XIII'),
+('Colmillo tigre', 38, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Cañón cosmo)', 2500, '-', 'Tifa'),
+('Conformar', 96, '112%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Avión Hundido)', 0, 'Largo alcance', 'Yuffie'),
+('Corazón', 99, '112%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Mercado Muro-Cd2,3)', 0, '-', 'Tifa'),
+('Cr francotirador', 42, '255%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Monte nibel), Tienda (Junon-cd2)', 0, 'Largo alcance', 'Vincent'),
+('Cruel', 100, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Speed square, 5000 puntos)', 0, '-', 'Cid'),
+('Cruz de cristal', 74, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 18000, 'Largo alcance', 'Yuffie'),
+('Cuento', 37, '103%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon cd2)', 2500, '-', 'Aeris'),
+('Cuerno behemoth', 91, '75%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Al volver a Midgar-cd2)', 0, '-', 'Red XIII'),
+('Espada cristal', 76, '105%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 18000, '-', 'Cloud'),
+('Espada Mortal', 18, '96%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, '-', 'Cloud'),
+('Evangelio venus', 97, '103%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Ciudad cohete)', 0, '-', 'Cid'),
+('Fono de luz', 88, '102%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Al regresar a midgar-Cd2)', 0, '-', 'Cait Sith'),
+('Forastero', 80, '120%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Avión hundido)', 0, 'Largo alcance', 'Vincent'),
+('Fregador', 68, '118%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Tienda (Junon-cd2)', 3200, '-', 'Cid'),
+('Fuerza motor', 27, '106%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Costa del sol)', 0, '-', 'Tifa'),
+('Garra', 70, '100%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Tienda (Junon- Cd 2-3), encontrado (Templo de los Ancianos)', 2800, '-', 'Cloud'),
+('Garra dragón', 62, '114%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Iciclos)', 10000, '-', 'Tifa'),
+('Garra mitrilo', 24, '106%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Kalm)', 750, '-', 'Tifa'),
+('Golpe cohete', 62, '110%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Templo de los ancianos), Tienda (Junon-Cd2)', 3200, '-', 'Barret'),
+('Gran guante', 31, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon y Gongaga)', 1200, '-', 'Tifa'),
+('Grito de pg', 95, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Cuartel general de shinra-Cd2)', 0, '-', 'Cait Sith'),
+('Guante cristal', 75, '115%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 16000, '-', 'Tifa'),
+('Guante piel', 13, '99%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, '-', 'Tifa'),
+('Guante trabajo', 68, '114%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Templo de los ancianos), Tienda (Junon-Cd2)', 2200, '-', 'Tifa'),
+('Guarda princesa', 51, '111%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Templo de los ancianos)', 0, '-', 'Aeris'),
+('Hacha', 64, '99%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Pueblo iciclos)', 13000, '-', 'Cid'),
+('Halcón', 61, '107%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Pueblo iciclos)', 12000, 'Largo alcance', 'Yuffie'),
+('Hoja runa', 40, '108%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Tienda (Junon:Disco 2-3), Encontrado (Montañas Nibelheim)', 3800, '-', 'Cloud'),
+('Jabalina', 62, '104%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Acantilado de gaea)', 0, '-', 'Cid'),
+('Ladrón', 36, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Tienda (Corel) , Junon (Actuación)', 2000, '-', 'Cloud'),
+('Lanza', 44, '97%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, '-', 'Cid'),
+('Lanza crecimiento', 78, '102%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Al volver a midgar,Cd2)', 0, '-', 'Cid'),
+('Lanza dragón', 66, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'Normal', 'Encontrado (Montañas de Wutai), Tienda (Wutai-Cd2)', 6200, '-', 'Cid'),
+('Lanza enemigos', 35, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Mansión Shinra), Tienda (Junon-Cd2)', 3300, 'Largo alcance', 'Barret'),
+('Lanza espíritu', 92, '12%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Avión hundido)', 0, '-', 'Cid'),
+('Lanza mortal', 56, '98%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 6500, '-', 'Cid'),
+('Lazo', 64, '120%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Pueblo iciclos)', 12000, 'Largo alcance', 'Vincent'),
+('Línea', 48, '124%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Tienda (Junon-cd2)', 6800, 'Largo alcance', 'Vincent'),
+('Luna limitada', 93, '114%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Bugenhagen-Cd3)', 0, '-', 'Red XIII'),
+('M-fono amarillo', 36, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, '-', 'Cait Sith'),
+('M-fono azul', 48, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 5500, '-', 'Cait Sith'),
+('M-fono blanco', 35, '105"', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Gongaga), Tienda (Junon-Cd2)', 2300, '-', 'Cait Sith'),
+('M-fono negro', 31, '104%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Cueva de los gi,Cañón Cosmo), Tienda (Junon-Cd2)', 2800, '-', 'Cait Sith'),
+('M-fono oro', 58, '103%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Costa del sol-cd2)', 15000, '-', 'Cait Sith'),
+('M-fono plata', 28, '106%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'Normal', 'Encontrado (Mansión Shinra), Tienda (Junon-Cd2)', 3300, '-', 'Cait Sith'),
+('M-fono rojo', 60, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Pueblo iciclos)', 11000, '-', 'Cait Sith'),
+('M-fono verde', 41, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon)', 2400, '-', 'Cait Sith'),
+('Mano de dios', 86, '255%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Batalla (Portaarmadura)', 0, '-', 'Tifa'),
+('Mercurio', 38, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, 'Largo alcance', 'Yuffie'),
+('Metralleta W', 30, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Monte Corel), Tienda (Junon-Cd2)', 2000, 'Largo alcance', 'Barret'),
+('Microláser', 63, '101%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Pueblo iciclos)', 12000, 'Largo alcance', 'Barret'),
+('Molinillo', 37, '104%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (CAñón cosmo)', 2600, 'Largo alcance', 'Yuffie'),
+('Murasame', 51, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 6500, '-', 'Cloud'),
+('Nubecielo', 93, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Galnika)', 0, '-', 'Cloud'),
+('Nudillo diamante', 51, '112%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 5800, '-', 'Tifa'),
+('Nudillo káiser', 44, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Torbellino del crater), Tienda (Costal Del Sol-Cd2)', 15000, '-', 'Tifa'),
+('Nudillo Metal', 18, '108%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mercado muro)', 320, '-', 'Tifa'),
+('Orgánica', 62, '103%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Pueblo iciclos)', 12000, '-', 'Cloud'),
+('Oritsuru', 90, '116%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Wutai, cueva de fuego)', 0, 'Largo alcance', 'Yuffie'),
+('Pacificador', 38, '118%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Kalm), Tienda (Junon-Cd2)', 3500, 'Largo alcance', 'Vincent'),
+('Paraguas', 58, '110%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Speed Square, 5000 puntos o mas', 0, '-', 'Aeris'),
+('Partisano', 78, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 19000, '-', 'Cid'),
+('Peine cristal', 76, '108%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 17000, '-', 'Red XIII'),
+('Peine mágico', 37, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Tienda (Junon-Cd2)', 2000, '-', 'Red XIII'),
+('Peine seraf', 68, '110%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Caverna de los gi, Cañón Cosmo)', 0, '-', 'Red XIII'),
+('Pena de muerte', 99, '115%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Cueva de la cascada-Cd3)', 0, 'Largo alcance', 'Vincent'),
+('Pila banger', 56, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Almacén del cuartel general shinra,Cd2)', 0, '-', 'Barret'),
+('Porra', 12, '99%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, '-', 'Aeris'),
+('Puño maestro', 38, '108%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Cuartel general de shinra-Cd2)', 0, '-', 'Tifa'),
+('Puño platino', 30, '108%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Casa Tifa), Tienda (Junon-Cd2)', 2200, '-', 'Tifa'),
+('Punto errado', 98, '108%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Midgar-cd2)', 0, 'Largo alcance', 'Barret'),
+('Ragnarok', 97, '105%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Ganado (Batalla contra Terrón Orgulloso)', 0, '-', 'Cloud'),
+('Rayo máximo', 97, '98%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Subtarráneo sector 8, al volver a Midgar)', 0, 'Largo alcance', 'Barret'),
+('Rifle', 62, '120%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Templo de los ancianos), Tienda (Junon-Cd2)', 3000, 'Largo alcance', 'Vincent'),
+('Sable de mitrilo', 23, '98%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Kalm y Junon)', 1000, '-', 'Cloud'),
+('Serpiente bicéfala', 36, '108%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Mansión Shinra), Tienda (Junon-Cd2)', 3200, 'Largo alcance', 'Yuffie'),
+('Shuriken 4 puntos', 23, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Equipo inicial', 0, 'Largo alcance', 'Yuffie'),
+('Shuriken espiral', 68, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Costa del sol-Cd2)', 14000, 'Largo alcance', 'Yuffie'),
+('Shuriken mágico', 64, '113%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon-cd2)', 6000, 'Largo alcance', 'Yuffie'),
+('Sol naciente', 68, '108%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Robar a "Arma Diamante"', 0, 'Largo alcance', 'Yuffie'),
+('Súper bola', 68, '120%', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Tienda (Junon-cd2)', 3000, 'Largo alcance', 'Yuffie'),
+('Super espada', 43, '107%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon:Disco 2-3), encontrado (Acantilado de Gaea)', 12000, '-', 'Cloud'),
+('Súper st', 97, '120%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Bosque de los ancianos)', 0, 'Largo alcance', 'Vincent'),
+('Taladro', 37, '97%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Casa De Cid), Tienda (Junon-Cd2)', 3300, '-', 'Barret'),
+('Tijera atómica', 32, '99%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Junon)', 1400, '-', 'Barret'),
+('Tridente', 60, '105%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Templo de los ancianos), Tienda (Junon)', 7500, '-', 'Cid'),
+('Trompeta', 95, '95%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Ninguno', 'Encontrado (Reactor submarino junon)', 0, '-', 'Cait Sith'),
+('Vara de aurora', 51, '110%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Wutai)', 5800, '-', 'Aeris'),
+('Vara golpeadora', 32, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Kalm, Gongaga)', 1300, '-', 'Aeris'),
+('Vara mágica', 28, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Monte Corel), Tienda (Junon-Cd2)', 1800, '-', 'Aeris'),
+('Vara metal', 22, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (kalm)', 800, '-', 'Aeris'),
+('Vara mitrilo', 16, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mercado muro)', 370, '-', 'Aeris'),
+('Vara prisma', 40, '105%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Cañón Cosmo)', 2600, '-', 'Aeris'),
+('Vara wizer', 33, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Combate contra Natakk Gi', 0, '-', 'Aeris'),
+('Ventolera', 30, '103%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Carguero de shinra), Tienda (Junon-Cd2)', 2000, 'Largo alcance', 'Yuffie'),
+('Víbora harberd', 58, '102%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Doble', 'Encontrado (Valle del coral), Tienda (Junon-Cd2)', 7000, '-', 'Cid'),
+('Vulcano pesado', 39, '100%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Cañón cosmo)', 2700, 'Largo alcance', 'Barret'),
+('Winchester', 73, '120%', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/2-link.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Tienda (Mideel)', 18000, 'Largo alcance', 'Vincent'),
+('Yoshiyuki', 56, '100%', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/1-nolink.gif', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'imagenes/ranuras/blanco.png', 'Normal', 'Encontrado (Hombre fuera de la tienda de armas de Ciudad Cohete)', 0, 'La espada se usa cuando cae un aliado', 'Cloud');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `canciones`
+--
+
+CREATE TABLE IF NOT EXISTS `canciones` (
+  `nombre` varchar(100) NOT NULL,
+  `mp3` varchar(100) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `canciones`
+--
+
+INSERT INTO `canciones` (`nombre`, `mp3`, `id`) VALUES
+('Aerith''s Theme', 'mp3/cd3/19-aeriths-theme.mp3', 1),
+('Attack Of The Weapon', 'mp3/cd4/02-attack-of-the-weapon.mp3', 2),
+('Barret''s Theme', 'mp3/cd1/06-barrets-theme.mp3', 3),
+('Birth Of A God', 'mp3/cd4/15-birth-of-a-god.mp3', 4),
+('Bombing Mission', 'mp3/cd1/02-opening-bombing-mission.mp3', 5),
+('Buried In Snow', 'mp3/cd3/20-buried-in-snow.mp3', 6),
+('Cait Sith''s Theme', 'mp3/cd2/20-cait-siths-theme.mp3', 7),
+('Cid''s Theme', 'mp3/cd3/07-cids-theme.mp3', 8),
+('Cinco De Chocobo', 'mp3/cd2/08-cinco-de-chocobo.mp3', 9),
+('Continue', 'mp3/cd2/15-continue.mp3', 10),
+('Cosmo Canyon', 'mp3/cd3/01-cosmo-canyon.mp3', 11),
+('Costa Del Sol', 'mp3/cd2/16-costa-del-sol.mp3', 12),
+('Countdown', 'mp3/cd4/10-countdown.mp3', 13),
+('Crazy Motorcycle', 'mp3/cd1/22-crazy-motorcycle.mp3', 14),
+('Dear To The Hearth', 'mp3/cd1/23-dear-to-the-heart.mp3', 15),
+('Debut', 'mp3/cd3/15-debut.mp3', 16),
+('Descendant Of Shinobi', 'mp3/cd3/04-descendant-of-shinobi.mp3', 17),
+('Desert Wasteland', 'mp3/cd2/21-desert-wasteland.mp3', 18),
+('Don Of The Slums', 'mp3/cd1/18-don-of-the-slums.mp3', 19),
+('Electric De Chocobo', 'mp3/cd2/07-electric-de-chocobo.mp3', 20),
+('Farm Boy', 'mp3/cd2/05-farm-boy.mp3', 21),
+('Fiddle De Chocobo', 'mp3/cd3/12-fiddle-de-chocobo.mp3', 22),
+('Fight On', 'mp3/cd1/20-fight-on.mp3', 23),
+('Flowers Blooming In The Church', 'mp3/cd1/12-flowers-blooming-in-the-church.mp3', 24),
+('Forested Temple', 'mp3/cd3/17-forested-temple.mp3', 25),
+('Fort Condor', 'mp3/cd2/10-fort-condor.mp3', 26),
+('From The Edge Of Despair', 'mp3/cd4/06-from-the-edge-of-despair.mp3', 27),
+('Gold Saucer', 'mp3/cd2/19-gold-saucer.mp3', 28),
+('Goodnight, Until Tomorrow', 'mp3/cd2/03-goodnight-until-tomorrow.mp3', 29),
+('Heart Of Anxiety', 'mp3/cd1/04-heart-of-anxiety.mp3', 30),
+('Honeybee Inn', 'mp3/cd1/16-honeybee-inn.mp3', 31),
+('Hurry', 'mp3/cd1/07-hurry.mp3', 32),
+('Hurry Up', 'mp3/cd4/08-hurry-up.mp3', 33),
+('In Search Of The Man In Black', 'mp3/cd2/09-in-search-of-the-man-in-black.mp3', 34),
+('Infiltrating Shinra', 'mp3/cd1/19-infiltrating-shinra.mp3', 35),
+('Its Hard To Stand On Both Feet', 'mp3/cd2/12-its-hard-to-stand-on-both-feet.mp3', 36),
+('Jackpot', 'mp3/cd3/13-jackpot.mp3', 37),
+('Jenova', 'mp3/cd2/14-jenova.mp3', 38),
+('Jenova Absolute', 'mp3/cd4/14-jenova-absolute.mp3', 39),
+('Judgement Day', 'mp3/cd4/13-judgement-day.mp3', 40),
+('Launching A Dream Into Space', 'mp3/cd4/09-launching-a-dream-into-space.mp3', 41),
+('Let The Battles Begin', 'mp3/cd1/10-let-the-battles-begin.mp3', 42),
+('LifeStream', 'mp3/cd3/02-lifestream.mp3', 43),
+('Listen To The Cries Of The Planet', 'mp3/cd3/18-listen-to-the-cries-of-the-planet.mp3', 44),
+('Lurking In The Darkness', 'mp3/cd1/08-lurking-in-the-darkness.mp3', 45),
+('Main Theme Of Final Fantasy VII', 'mp3/cd2/01-main-theme-of-final-fantasy-vii.mp3', 46),
+('Mako Cannon', 'mp3/cd4/12-mako-cannon-the-destruction-of-shinra.mp3', 47),
+('Mako Reactor', 'mp3/cd1/03-mako-reactor.mp3', 48),
+('Mark Of A Traitor', 'mp3/cd2/17-mark-of-a-traitor.mp3', 49),
+('Mining Town', 'mp3/cd2/18-mining-town.mp3', 50),
+('On Our Way', 'mp3/cd2/02-on-our-way.mp3', 51),
+('One Winged Angel', 'mp3/cd4/16-one-winged-angel.mp3', 52),
+('Open Your Heart', 'mp3/cd4/11-open-your-heart.mp3', 53),
+('Prelude', 'mp3/cd1/01-prelude.mp3', 54),
+('Provincial Town', 'mp3/cd4/05-provincial-town.mp3', 55),
+('Racing Chocobos', 'mp3/cd3/11-racing-chocobos-place-your-bets.mp3', 56),
+('Red XIII''s Theme', 'mp3/cd1/21-red-xiiis-theme.mp3', 57),
+('Reunion', 'mp3/cd3/22-reunion.mp3', 58),
+('Rufus Welcoming Ceremony', 'mp3/cd2/11-rufus-welcoming-ceremony.mp3', 59),
+('Secret Of The Deep Sea', 'mp3/cd4/04-secret-of-the-deep-sea.mp3', 60),
+('Shinra', 'mp3/cd1/09-shinra-company.mp3', 61),
+('Shinra''s Full Scale Assault', 'mp3/cd4/01-shinras-full-scale-assault.mp3', 62),
+('Staff Roll', 'mp3/cd4/18-staff-roll.mp3', 63),
+('Steal The Tiny Bronco', 'mp3/cd3/08-steal-the-tiny-bronco.mp3', 64),
+('Stolen Materia', 'mp3/cd3/10-stolen-materia.mp3', 65),
+('Tango Of Tears', 'mp3/cd3/14-tango-of-tears.mp3', 66),
+('That Day, 5 Years Ago', 'mp3/cd2/04-on-that-day-5-years-ago.mp3', 67),
+('The Great Warrior', 'mp3/cd3/03-the-great-warrior.mp3', 68),
+('The Highwind Takes To The Skies', 'mp3/cd4/03-the-highwind-takes-to-the-skies.mp3', 69),
+('The Nightmare Begins', 'mp3/cd3/06-the-nightmare-begins.mp3', 70),
+('The North Cave', 'mp3/cd3/21-the-north-cave.mp3', 71),
+('The Oppressed', 'mp3/cd1/15-the-oppressed.mp3', 72),
+('The Other Side Of The Mountain', 'mp3/cd4/07-other-side-of-the-mountain.mp3', 73),
+('The Planet''s Crisis', 'mp3/cd4/17-the-planets-crisis.mp3', 74),
+('Those Chosen By The Planet', 'mp3/cd3/05-those-chosen-by-the-planet.mp3', 75),
+('Tifa''s Theme', 'mp3/cd1/05-tifas-theme.mp3', 76),
+('Trail Of Blood', 'mp3/cd2/13-trail-of-blood.mp3', 77),
+('Turks', 'mp3/cd1/13-turks-theme.mp3', 78),
+('Under The Rotting Pizza', 'mp3/cd1/14-under-the-rotting-pizza.mp3', 79),
+('Victory', 'mp3/cd1/11-fanfare.mp3', 80),
+('Waltz De Chocobo', 'mp3/cd2/06-waltz-de-chocobo.mp3', 81),
+('Who Am I?', 'mp3/cd3/23-who-am-i.mp3', 82),
+('Who Are You', 'mp3/cd1/17-who-are-you.mp3', 83),
+('Words Drowned By Fireworks', 'mp3/cd3/16-words-drowned-by-fireworks.mp3', 84),
+('Wutai', 'mp3/cd3/09-wutai.mp3', 85);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `enemigos`
+--
+
+CREATE TABLE IF NOT EXISTS `enemigos` (
+  `imagen` varchar(100) NOT NULL DEFAULT 'imagenes/enemigos/imagen.png',
+  `nombre` varchar(100) NOT NULL,
+  `nivel` int(100) NOT NULL,
+  `pg` int(100) NOT NULL,
+  `mp` int(100) NOT NULL,
+  `exp` int(100) NOT NULL,
+  `ap` int(100) NOT NULL,
+  `gil` int(100) NOT NULL,
+  `debil` varchar(100) NOT NULL,
+  `fuerte` varchar(100) NOT NULL,
+  `absorve` varchar(100) NOT NULL,
+  `inmune` varchar(100) NOT NULL,
+  `Jefe` set('Si','No') NOT NULL DEFAULT 'No'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `enemigos`
+--
+
+INSERT INTO `enemigos` (`imagen`, `nombre`, `nivel`, `pg`, `mp`, `exp`, `ap`, `gil`, `debil`, `fuerte`, `absorve`, `inmune`, `Jefe`) VALUES
+('imagenes/enemigos/1rayo.png', '1er rayo', 4, 18, 0, 12, 1, 5, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/acrofias.png', 'Acrofias', 35, 2400, 220, 800, 90, 1200, '-', '-', 'Agua', 'Oscuridad', 'No'),
+('imagenes/enemigos/adamantaimai.png', 'Adamantaimai', 30, 1600, 240, 720, 100, 2000, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/combatienteaereo.png', 'Aeroluchador', 11, 190, 0, 40, 4, 110, 'Viento', '-', '-', 'Tierra y Oscuridad', 'No'),
+('imagenes/enemigos/aguijon.png', 'Aguijón', 25, 2200, 60, 290, 25, 358, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/alaviento.png', 'Ala viento', 36, 1900, 350, 800, 60, 500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/alemania.png', 'Alemania', 48, 8000, 200, 1300, 100, 1360, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/anguilagigante.png', 'Anguila gigante', 38, 2800, 100, 1340, 60, 1250, '-', 'Agua', '-', 'Tierra', 'No'),
+('imagenes/enemigos/antenoide.png', 'Antenoide', 15, 210, 20, 60, 6, 103, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/aplanadora.png', 'Aplanadora', 19, 420, 96, 92, 9, 140, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/armadiamante.png', 'Arma diamante', 49, 30000, 30000, 35000, 3500, 25000, 'Rayo', 'Fuego', '-', '-', 'No'),
+('imagenes/enemigos/arpia.png', 'Arpía', 8, 200, 200, 148, 14, 210, '-', 'Oscuridad', '-', '-', 'No'),
+('imagenes/enemigos/atacanteduro.png', 'Atacante duro', 32, 2500, 150, 750, 58, 600, '-', 'Fuego y Agua', '-', '-', 'No'),
+('imagenes/enemigos/avesonica.png', 'Ave sónica', 26, 750, 50, 370, 28, 330, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/bagnadrana.png', 'Bagnadrana', 16, 450, 60, 110, 11, 120, 'Hielo', '-', '-', 'Fuego y Oscuridad', 'No'),
+('imagenes/enemigos/bagrisk.png', 'Bagrisk', 19, 400, 50, 240, 20, 275, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/bahbavelamyu.png', 'Bahba velamyu', 23, 640, 40, 240, 30, 275, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/bailarin.png', 'Bailarín', 32, 600, 100, 500, 56, 700, '-', '-', '-', 'Agua y Tierra', 'No'),
+('imagenes/enemigos/bandersnatch.png', 'Bandersnatch', 30, 850, 100, 510, 40, 600, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/bandido.png', 'Bandido', 17, 360, 80, 99, 40, 600, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/barcofantasma.png', 'Barco fantasma', 44, 6600, 100, 1600, 60, 2000, 'Sagrado', 'Agua', '-', 'Tierra y Oscuridad', 'No'),
+('imagenes/enemigos/barredor.png', 'Barredor', 8, 140, 0, 27, 3, 30, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/barredorpersonalizado.png', 'Barredor personalizado', 15, 300, 100, 63, 7, 120, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/behemoth.png', 'Behemoth', 45, 7000, 400, 1500, 100, 2200, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/besoaguja.png', 'Beso aguja', 17, 180, 40, 75, 8, 130, 'Viento', '-', '-', 'Rayo y Tierra', 'No'),
+('imagenes/enemigos/bichoraro.png', 'Bicho raro', 28, 975, 0, 420, 40, 340, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/blugu.png', 'Blugu', 4, 120, 0, 18, 2, 35, 'Rayo y Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/bofetada.png', 'Bofetada', 18, 330, 60, 140, 15, 186, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/bofetadas.png', 'Bofetadas', 29, 900, 50, 370, 30, 450, 'Viento', '-', '-', 'Viento', 'No'),
+('imagenes/enemigos/bomba.png', 'Bomba', 18, 600, 30, 150, 20, 192, '-', '-', '-', 'Tierra y Fuego', 'No'),
+('imagenes/enemigos/bombardero.png', 'Bombardero', 35, 1600, 200, 640, 64, 460, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/borde.png', 'Borde', 27, 900, 80, 370, 36, 385, '-', '-', 'Rayo', '-', 'No'),
+('imagenes/enemigos/cabezadiabolica.png', 'Cabeza diabólica', 28, 740, 80, 370, 50, 40, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cactuar.png', 'Cactuar', 20, 200, 20, 1, 1, 10000, '-', '-', '-', 'Fuego, Tierra, Hielo, Rayo, Agua, Oscuridad y Sagrado', 'No'),
+('imagenes/enemigos/calamon.png', 'Calamón', 16, 200, 100, 95, 10, 155, '-', 'Hielo', '-', '-', 'No'),
+('imagenes/enemigos/camaleonferoz.png', 'Camaleón feroz', 28, 960, 0, 440, 36, 380, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/caniche.png', 'Caniche', 42, 6000, 220, 900, 70, 2500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/canonlaser.png', 'Cañón láser', 8, 155, 0, 5, 4, 0, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/canonruleta.png', 'Cañón ruleta', 38, 3000, 200, 1200, 100, 1600, 'Rayo', '-', '-', 'Veneno', 'No'),
+('imagenes/enemigos/canonx.png', 'Cañón x', 46, 20000, 100, 2000, 90, 3000, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/capitan.png', 'Capitán', 34, 2000, 90, 850, 84, 1050, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/caradorky.png', 'Cara dorky', 23, 520, 80, 300, 35, 202, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/carreradiabolica.png', 'Carrera diabólica', 13, 240, 0, 60, 6, 100, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/casainferno.png', 'Casa inferno', 11, 450, 0, 44, 6, 250, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/castanetas.png', 'Castañetas', 15, 190, 0, 65, 7, 112, 'Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/cazacabezas.png', 'Caza cabezas', 30, 2000, 100, 650, 80, 1000, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cerebrogemelo.png', 'Cerebro gemelo', 25, 400, 20, 340, 32, 320, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cesar.png', 'César', 11, 120, 0, 23, 2, 55, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/chekov.png', 'Chekov', 34, 3000, 210, 2900, 50, 0, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/chocobo.png', 'Chocobo', 13, 0, 13, 10, 1, 1, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cienojos.png', 'Cien ojos', 30, 500, 220, 1000, 100, 720, 'Veneno', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/clavocongelado.png', 'Clavo congelado', 28, 1300, 100, 520, 80, 800, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cloaca.png', 'Cloaca', 35, 2500, 100, 900, 80, 3000, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cmdgrancuerno.png', 'CMD - gran cuerno', 19, 2000, 100, 200, 20, 2400, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cokatolis.png', 'Cokatolis', 17, 420, 0, 97, 10, 168, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/colmillokalm.png', 'Colmillo kalm', 10, 160, 0, 53, 5, 92, 'Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/combatienteespecial.png', 'Combatiene especial', 9, 60, 0, 28, 3, 40, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cometodo.png', 'Come-todo', 9, 72, 0, 24, 2, 70, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/comerciantedemuerte.png', 'Comerciante de muerte', 48, 7000, 400, 1800, 200, 1200, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/conductodegas.png', 'Conducto de gas', 42, 3000, 200, 900, 75, 1100, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/corbeta.png', 'Corbeta', 36, 3200, 260, 1050, 60, 2200, '-', 'Agua', '-', 'Tierra', 'No'),
+('imagenes/enemigos/crisalida.png', 'Crisálita', 37, 1500, 100, 800, 80, 600, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cristobal.png', 'Cristóbal', 34, 6000, 200, 1300, 80, 800, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cromwell.png', 'Cromwell', 42, 3500, 120, 800, 80, 1500, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/cuahl.png', 'Cuahl', 33, 1300, 60, 720, 70, 800, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/cuernodoble.png', 'Cuerno doble', 30, 2500, 0, 550, 45, 500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/danzaespada.png', 'Danza espada', 11, 160, 0, 39, 6, 90, '-', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/desconocido.png', 'Desconocido', 50, 11000, 110, 1500, 150, 5000, '-', '-', 'Fuego', '-', 'No'),
+('imagenes/enemigos/desconocido2.png', 'Desconocido 2', 51, 13000, 130, 3000, 300, 10000, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/desconocido3.png', 'Desconocido 3', 52, 15000, 150, 900, 200, 75000, '-', '-', 'Rayo', '-', 'No'),
+('imagenes/enemigos/desiertosahagin.png', 'Desierto sahagin', 20, 580, 0, 230, 21, 300, 'Hielo', 'Fuego', 'Agua', '-', 'No'),
+('imagenes/enemigos/diablo.png', 'Diablo', 41, 4000, 200, 1100, 70, 1100, '-', '-', '-', 'Fuego y Viento', 'No'),
+('imagenes/enemigos/diabolico.png', 'Diabólico', 8, 100, 0, 26, 3, 53, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/dinglo.png', 'Dinglo', 10, 120, 72, 35, 4, 70, 'Viento', 'Rayo', 'Hielo', 'Agua, Oscuridad y Tierra', 'No'),
+('imagenes/enemigos/doblescaras.png', 'Dobles caras', 18, 330, 80, 100, 10, 156, '-', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/dragon.png', 'Dragón', 32, 3500, 250, 900, 110, 1400, '-', '-', 'Fuego', 'Oscuridad', 'No'),
+('imagenes/enemigos/dragonanciano.png', 'Dragón anciano', 34, 2400, 450, 800, 80, 800, 'Oscuridad y Viento', '-', '-', 'Agua y Tierra', 'No'),
+('imagenes/enemigos/dragonarcaico.png', 'Dragón arcaico', 18, 220, 124, 84, 10, 180, 'Viento', '-', 'Fuego', 'Tierra', 'No'),
+('imagenes/enemigos/dragonazul.png', 'Dragón azul', 41, 8800, 600, 1200, 200, 1000, '-', '-', 'Hielo', 'Oscuridad', 'No'),
+('imagenes/enemigos/dragonoscuro.png', 'Dragón oscuro', 57, 14000, 600, 5000, 350, 2500, '-', '-', '-', 'Rayo', 'No'),
+('imagenes/enemigos/dragonzombie.png', 'Dragón zombie', 54, 13000, 400, 4000, 300, 2800, 'Veneno', '-', '-', '-', 'No'),
+('imagenes/enemigos/duende.png', 'Duende', 40, 2000, 80, 20, 20, 20, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/elfadunk.png', 'Elfadunk', 14, 220, 34, 64, 7, 140, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/eligor.png', 'Eligor', 12, 300, 67, 36, 4, 120, '-', 'Oscuridad', '-', '-', 'No'),
+('imagenes/enemigos/epiolnis.png', 'Epiolnis', 36, 1800, 90, 950, 70, 1500, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/equipodeataque.png', 'Equipo de ataque', 34, 1300, 100, 300, 10, 420, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/escultura.png', 'Escultura', 32, 1700, 100, 860, 60, 640, 'Sagrado', '-', '-', '-', 'No'),
+('imagenes/enemigos/espectrogi.png', 'Espectro gi', 23, 450, 88, 270, 24, 330, 'Oscuridad y Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/espejo.png', 'Espejo', 24, 570, 0, 290, 22, 180, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/espiral.png', 'Espiral', 29, 2800, 100, 700, 80, 1300, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/fantasma.png', 'Fantasma', 10, 130, 80, 30, 3, 22, 'Fuego y Sargado', 'Viento', '-', 'Tierra y Agua', 'No'),
+('imagenes/enemigos/formula.png', 'Fórmula', 16, 240, 100, 65, 7, 120, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/foulander.png', 'Foulander', 27, 800, 100, 440, 34, 460, 'Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/fragmento.png', 'Fragmento', 32, 900, 100, 500, 40, 950, '-', '-', 'Hielo', '-', 'No'),
+('imagenes/enemigos/gagighandi.png', 'Gagighandi', 19, 480, 55, 173, 18, 220, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/gargola.png', 'Gárgola', 43, 2000, 200, 800, 80, 2500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/garraletal.png', 'Garra letal', 19, 400, 120, 96, 10, 168, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/garuda.png', 'Garuda', 29, 1400, 200, 520, 30, 520, 'Viento', '-', 'Hielo y Rayo', 'Tierra', 'No'),
+('imagenes/enemigos/ghirofelgo.png', 'Ghirofelgo', 26, 1600, 0, 380, 44, 300, '-', '-', '-', 'Oscuridad y Tierra', 'No'),
+('imagenes/enemigos/gigas.png', 'Gigas', 40, 3500, 100, 840, 84, 560, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/gighee.png', 'Gighee', 34, 5500, 100, 700, 60, 600, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/golem.png', 'Golem', 24, 1000, 0, 300, 22, 500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/golemarmado.png', 'Golem armado', 41, 10000, 200, 2500, 100, 2680, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/golemhielo.png', 'Golem hielo', 40, 4000, 300, 1000, 70, 1500, '-', '-', 'Hielo', '-', 'No'),
+('imagenes/enemigos/golpeduro.png', 'Golpe duro', 8, 42, 0, 20, 2, 20, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/gordinflon.png', 'Gordinflón', 18, 240, 0, 90, 9, 125, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/gorkii.png', 'Gorkii', 30, 3000, 150, 1500, 50, 0, 'Viento', '-', '-', 'Tierra y Oscuridad', 'No'),
+('imagenes/enemigos/grancuerno.png', 'Gran cuerno', 19, 460, 43, 180, 15, 240, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/granadero.png', 'Granadero', 10, 130, 0, 42, 4, 72, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/grangalan.png', 'Grangalán', 16, 550, 66, 88, 10, 220, '-', '-', '-', 'Tierra , Oscuridad y Agua', 'No'),
+('imagenes/enemigos/grangalanjr.png', 'Grangalán jr', 15, 330, 40, 77, 8, 110, '-', '-', '-', 'Tierra, Agua y Oscuridad', 'No'),
+('imagenes/enemigos/grangalanjrjr.png', 'Grangalán jr jr', 14, 110, 20, 66, 6, 55, '-', '-', '-', 'Tierra, Agua y Oscuridad', 'No'),
+('imagenes/enemigos/grasatoda.png', 'Grasatoda', 27, 500, 80, 420, 40, 350, 'Hielo', '-', '-', '-', 'No'),
+('imagenes/enemigos/gremlin.png', 'Gremlin', 36, 1500, 100, 750, 60, 750, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/griffin.png', 'Griffin', 21, 760, 40, 260, 25, 350, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/griton.png', 'Gritón', 26, 800, 40, 400, 33, 400, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/grosspanzergrande.png', 'Grosspanzer - grande', 46, 4600, 200, 800, 80, 2100, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/grosspanzermovil.png', 'Grosspanzer - móvil', 45, 10000, 300, 400, 80, 1400, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/grosspanzermovil.png', 'Grosspanzer - pequeno', 42, 2900, 160, 600, 80, 700, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/grunido.png', 'Gruñido', 7, 40, 0, 22, 2, 15, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/grunidomayor.png', 'Gruñido mayor', 35, 2600, 245, 930, 90, 800, '-', 'Agua', '-', '-', 'No'),
+('imagenes/enemigos/grunidopoderoso.png', 'Gruñido poderoso', 12, 230, 0, 50, 5, 98, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/guardia.png', 'Guardia', 31, 880, 120, 600, 45, 560, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/guardian.png', 'Guardián', 40, 400, 340, 940, 60, 500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/gusano.png', 'Gusano', 22, 9000, 200, 1300, 200, 5000, 'Hielo', 'Fuego', 'Tierra', 'Oscuridad', 'No'),
+('imagenes/enemigos/hacesombra.png', 'Hace sombra', 42, 2000, 120, 50, 25, 500, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/hambre.png', 'Hambre', 33, 2000, 100, 700, 60, 600, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/heg.png', 'Heg', 22, 400, 0, 250, 20, 240, 'Hielo', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/hierbanavaja.png', 'Hierba navaja', 27, 1000, 145, 375, 30, 350, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/hipogrifo.png', 'Hipogrifo', 37, 3000, 280, 800, 80, 1500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/hochu.png', 'Ho-chu', 39, 4300, 290, 750, 70, 2500, 'Agua', '-', 'Veneno', 'Oscuridad', 'No'),
+('imagenes/enemigos/hombredehierro.png', 'Hombre de hierro', 46, 20000, 100, 10000, 150, 600, 'Agua', 'Fuego, Tierra y Hielo', '-', '-', 'No'),
+('imagenes/enemigos/hongocorona.png', 'Hongocorona', 16, 150, 30, 80, 8, 110, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/humeador.png', 'Humeador', 8, 90, 0, 32, 3, 60, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/iciclo.png', 'Iciclo', 30, 3000, 300, 500, 0, 0, 'Fuego, Oscuridad y Tierra', '-', 'Hielo', '-', 'No'),
+('imagenes/enemigos/ironita.png', 'Ironita', 30, 2400, 100, 900, 48, 680, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/jayjujayme.png', 'Jayjujayme', 28, 640, 20, 410, 35, 350, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/jemnezmy.png', 'Jemnezmy', 24, 800, 80, 510, 50, 400, 'Veneno', '-', '-', 'Hielo', 'No'),
+('imagenes/enemigos/jersey.png', 'Jersey', 25, 500, 100, 320, 30, 384, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/jinetedragon.png', 'Jinete dragón', 35, 3500, 180, 1000, 80, 690, 'Viento', '-', '-', 'Tierra, Agua y Oscuridad', 'No'),
+('imagenes/enemigos/jineteinfernalvr2.png', 'Jinete infernal vr2', 18, 350, 50, 72, 8, 130, '-', 'Oscuridad', '-', '-', 'No'),
+('imagenes/enemigos/joker.png', 'Jóker', 18, 370, 0, 150, 30, 260, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/kelzmelzer.png', 'Kelzmelzer', 30, 800, 0, 410, 35, 400, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/killbin.png', 'Killbin', 30, 3200, 380, 700, 150, 1000, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/kimairamaxima.png', 'Kimaira máxima', 49, 4000, 350, 1200, 90, 3800, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/kimara.png', 'Kimara', 19, 700, 25, 190, 19, 278, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/kyuvilduns.png', 'Kyuviduns', 24, 800, 0, 340, 34, 368, 'Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/lacayodecorneo.png', 'Lacayo de corneo', 8, 42, 0, 8, 0, 10, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/lagartosubterraneo.png', 'Lagarto busterráneo', 29, 1400, 140, 440, 45, 420, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/lanzacorona.png', 'Lanzacorona', 20, 440, 70, 225, 23, 400, 'Fuego', '-', 'Rayo', 'Tierra', 'No'),
+('imagenes/enemigos/lanzadora.png', 'Lanzadora', 5, 50, 0, 13, 3, 7, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/lanzadorajunon.png', 'Lanzadora (Junon)', 20, 1000, 0, 600, 60, 300, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/lessaloploth.png', 'Lessaloploth', 34, 2000, 400, 920, 65, 1000, 'Viento', '-', '-', 'Agua, Tierra, Oscuridad y Hielo', 'No'),
+('imagenes/enemigos/levrikon.png', 'Levrikon', 14, 200, 0, 65, 7, 128, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/lobonibel.png', 'Lobo nibel', 23, 700, 0, 265, 24, 260, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/lombriz.png', 'Lombriz', 22, 1500, 80, 400, 40, 256, 'Hielo', 'Fuego y Oscuridad', 'Tierra', '-', 'No'),
+('imagenes/enemigos/madouge.png', 'Madouge', 16, 220, 0, 70, 8, 150, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/maestrolobo.png', 'Maestro lobo', 42, 10000, 200, 10000, 100, 600, 'Agua', '-', '-', '-', 'No'),
+('imagenes/enemigos/maestrotonberry.png', 'Maestro tonberry', 77, 44444, 100, 6000, 200, 6800, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/magnada.png', 'Magnada', 35, 1000, 100, 980, 50, 1200, 'Fuego y Oscuridad', '-', '-', '-', 'No'),
+('imagenes/enemigos/malgolpe.png', 'Mal golpe', 38, 9000, 120, 1100, 70, 2500, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/malboro.png', 'Malboro', 44, 4400, 900, 1000, 100, 100, '-', '-', 'Veneno', 'Oscuridad', 'No'),
+('imagenes/enemigos/mandragora.png', 'Mandrágora', 10, 120, 0, 55, 6, 135, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/maquinamortal.png', 'Máquina mortal', 35, 2500, 150, 900, 80, 1200, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/marina.png', 'Marina', 16, 300, 20, 75, 8, 150, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/marmitamagica.png', 'Marmita mágica', 41, 4096, 128, 8000, 1000, 8500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/martillo.png', 'Martillo', 12, 210, 0, 43, 5, 80, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/metralleta.png', 'Metralleta', 8, 150, 0, 5, 4, 0, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/metralletarapida.png', 'Metralleta rápida', 20, 1000, 0, 600, 60, 300, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/midgarzolom.png', 'Midgar zolom', 26, 4000, 348, 250, 25, 400, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/monounidad.png', 'Monounidad', 2, 28, 28, 18, 3, 8, 'Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/movedor.png', 'Movedor', 59, 3000, 120, 0, 800, 30000, '-', 'Tierra, Fuego, Hielo y Rayo', '-', '-', 'No'),
+('imagenes/enemigos/mu.png', 'Mu', 12, 210, 52, 56, 6, 130, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/murcielagonegro.png', 'Murciélago negro', 25, 550, 0, 270, 24, 80, 'Viento y Sagrado', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/nerosuferoth.png', 'Nerosuferoth', 16, 150, 20, 53, 5, 146, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/nieve.png', 'Nieve', 32, 4000, 160, 500, 42, 700, 'Fuego', '-', 'Hielo', '-', 'No'),
+('imagenes/enemigos/oruga.png', 'Oruga', 15, 140, 48, 56, 6, 65, 'Viento', 'Hielo', '-', '-', 'No'),
+('imagenes/enemigos/ojoespia.png', 'Oso espía', 15, 240, 60, 80, 8, 120, 'Viento', '-', '-', 'Agua y Tierra', 'No'),
+('imagenes/enemigos/pajarotrueno.png', 'Pájaro trueno', 28, 800, 80, 385, 36, 420, '-', '-', 'Rayo', '-', 'No'),
+('imagenes/enemigos/parasito.png', 'Parásito', 51, 6000, 300, 1100, 100, 1000, 'Sagrado y Viento', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/pasteldeerizo.png', 'Pastel de erizo', 6, 40, 52, 20, 3, 25, 'Hielo', '-', '-', '-', 'No'),
+('imagenes/enemigos/perroguardian.png', 'Perro guardián', 3, 42, 0, 20, 2, 12, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/perrorastrero.png', 'Perro rastrero', 21, 600, 65, 270, 24, 330, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/pistolaaguila.png', 'Pistola águila', 46, 17000, 50, 2000, 90, 1600, 'Rayo', '-', '-', 'Agua y Tierra', 'No'),
+('imagenes/enemigos/pm.png', 'Pm', 2, 30, 0, 16, 2, 10, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/pmsubacuatica.png', 'Pm subacuática', 34, 1000, 100, 820, 80, 600, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/policiavargida.png', 'Policia várgida', 9, 140, 28, 44, 7, 40, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/polillacortante.png', 'Polilla cortante', 13, 260, 0, 46, 5, 75, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/pollensalta.png', 'Pollensalta', 41, 4000, 220, 1000, 100, 1000, 'Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/portacerebro.png', 'Portacerebro', 16, 240, 46, 52, 6, 95, 'Sagrado', '-', 'Veneno', 'Tierra', 'No'),
+('imagenes/enemigos/portapistola.png', 'Portapistola', 39, 3400, 240, 860, 75, 1600, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/protometralleta.png', 'Proto - metralleta', 4, 100, 0, 16, 2, 15, 'Rayo', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/puadeflor.png', 'Púa de flor', 19, 550, 68, 240, 24, 400, 'Fuego y Tierra', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/ranatoxica.png', 'Rana tóxica', 26, 500, 100, 420, 30, 260, 'Hielo', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/reybehemoth.png', 'Rey behemoth', 60, 18000, 560, 2000, 250, 950, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/rilfsak.png', 'Rilfsak', 40, 2000, 500, 1000, 70, 900, '-', '-', '-', 'Tierra', 'No'),
+('imagenes/enemigos/rondador.png', 'Rondador', 12, 150, 0, 55, 5, 160, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/saborsangre.png', 'Sabor sangre', 8, 72, 0, 24, 2, 32, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/sahagin.png', 'Sahagin', 10, 150, 0, 30, 3, 89, '-', '-', 'Agua', '-', 'No'),
+('imagenes/enemigos/saltar.png', 'Saltar', 24, 999, 0, 400, 30, 50, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/scotch.png', 'Scotch', 11, 150, 0, 22, 0, 60, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/serpiente.png', 'Serpiente', 40, 14000, 290, 1400, 70, 2500, 'Viento', '-', 'Agua', 'Tierra y Oscuridad', 'No'),
+('imagenes/enemigos/shake.png', 'Shake', 32, 4000, 180, 2200, 50, 0, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/sierra.png', 'Sierra', 44, 3900, 340, 800, 80, 1300, 'Rayo', '-', '-', '-', 'No'),
+('imagenes/enemigos/sistemaguardian.png', 'Sistema guardián', 35, 2200, 200, 1100, 80, 1200, '-', '-', '-', 'Rayo', 'No'),
+('imagenes/enemigos/skiski.png', 'Skiski', 20, 540, 0, 222, 22, 222, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/slalom.png', 'Slalom', 37, 1600, 30, 700, 70, 1500, '-', 'Agua', '-', '-', 'No'),
+('imagenes/enemigos/soldadode1.png', 'Soldado de 1ª', 44, 5000, 400, 960, 90, 2400, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/soldadode2.png', 'Soldado de 2ª', 35, 4000, 340, 1000, 85, 750, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/soldadode3.png', 'Soldado de 3ª', 13, 250, 40, 54, 6, 116, 'Fuego', '-', '-', '-', 'No'),
+('imagenes/enemigos/spencer.png', 'Spencer', 17, 250, 0, 110, 11, 175, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/stilva.png', 'Stilva', 40, 2000, 300, 1000, 110, 1100, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/tableroaviso.png', 'Tablero aviso', 12, 270, 0, 38, 4, 75, '-', '-', '-', 'Rayo', 'No'),
+('imagenes/enemigos/tanquechuse.png', 'Tanque chuse', 6, 36, 0, 23, 2, 30, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/tanquepesado.png', 'Tanque pesado', 21, 1600, 25, 340, 45, 1300, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/tapabateria.png', 'Tapa batería', 24, 640, 58, 270, 32, 386, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/tareavelcher.png', 'Tarea velcher', 26, 900, 28, 320, 32, 350, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/tijeras.png', 'Tijeras', 33, 2900, 88, 1000, 90, 1400, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/tocame.png', 'Tócame', 18, 300, 74, 170, 23, 180, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/tonadu.png', 'Tonadu', 30, 1600, 0, 600, 45, 600, 'Viento', '-', '-', 'Agua y Tierra', 'No'),
+('imagenes/enemigos/tonberry.png', 'Tonberry', 25, 15000, 250, 999, 99, 999, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/toro.png', 'Toro', 35, 2800, 160, 760, 50, 680, '-', '-', 'Fuego', 'Oscuridad', 'No'),
+('imagenes/enemigos/tripulantesubmarino.png', 'Tripulante submarino', 32, 1500, 85, 850, 80, 500, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/truci.png', 'Truco', 24, 1500, 100, 480, 35, 800, '-', '-', 'Viento', '-', 'No'),
+('imagenes/enemigos/valron.png', 'Valron', 24, 950, 80, 300, 30, 300, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/vicio.png', 'Vicio', 7, 68, 0, 24, 3, 80, '-', '-', '-', '-', 'No'),
+('imagenes/enemigos/vlakorados.png', 'Vlakorados', 33, 33333, 333, 510, 40, 460, '-', 'Oscuridad', '-', '-', 'No'),
+('imagenes/enemigos/yingyang.png', 'Ying / Yang', 24, 1200, 220, 400, 40, 400, '-', '-', '-', 'Oscuridad', 'No'),
+('imagenes/enemigos/zemzelett.png', 'Zemzelett', 17, 285, 36, 70, 7, 165, 'Viento', '-', '-', 'Oscuridad, Tierra y Agua', 'No'),
+('imagenes/enemigos/zenene.png', 'Zenene', 14, 250, 93, 58, 6, 60, 'Sagrado', 'Fuego', 'Veneno', '-', 'No'),
+('imagenes/enemigos/zolokalter.png', 'Zolokalter', 30, 950, 90, 700, 60, 700, '-', '-', 'Veneno', '-', 'No'),
+('imagenes/enemigos/zuu.png', 'Zuu', 27, 1200, 40, 450, 38, 430, '-', '-', '-', '-', 'No');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `materia`
+--
+
+CREATE TABLE IF NOT EXISTS `materia` (
+  `tipo` varchar(100) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `materia`
+--
+
+INSERT INTO `materia` (`tipo`, `nombre`, `descripcion`) VALUES
+('Apoyo', 'Absorción PG', 'Te permite absorver PG a la vez que usas la magia o invocación enlazada'),
+('Apoyo', 'Absorción PM', 'Te permite absorver PM a la vez que usas la magia o invocacion enlazada'),
+('Invocacion', 'Alejandro', 'Elemento sacro'),
+('Apoyo', 'Ataque Final', 'Se usa la materia enlazada al morir'),
+('Apoyo', 'Ataque Furtivo', 'Al empezar la batalla ataca con esta materia'),
+('Independiente', 'Atrae-chocobo', 'Permite luchar contra chocobos'),
+('Independiente', 'Atrae-enemigos', 'Aumenta la tasa de combates aleatorios'),
+('Invocacion', 'Bahamut', 'No elemental'),
+('Invocacion', 'Bahamut zero', 'Daño no elemental'),
+('Magia', 'Barrera', 'Lanza hechizos de protección'),
+('Invocacion', 'Caballeros de la mesa redonda', 'No elemental'),
+('Invocacion', 'Choco/mog', 'Elemento Viento'),
+('Comando', 'Comando Maestro', 'Te otorga todas las materias maestro en 1 sola'),
+('Magia', 'Cometa', 'Daño no elemental'),
+('Apoyo', 'Contar', 'Te permite contraatacar con un comando de la materia enlazada'),
+('Magia', 'Contener', 'Hechizos de Hielo, fuego, aire y tierra de gran daño'),
+('Independiente', 'Contraataque', 'Contraataca al recibir daño fisico'),
+('Apoyo', 'Corte Añadido', 'Ataca a la vez que se usa la materia enlazada'),
+('Comando', 'Corte doble', 'Ataca dos veces seguidas'),
+('Apoyo', 'Cuadrimagia', 'Te permite lanzar X veces(dependiendo del nivel de la materia) la magia o invocación enlazada'),
+('Independiente', 'Cubrir', 'Protege a los aliados de los ataques físicos'),
+('Magia', 'Cura total', 'Restaura todos los PGs de un personaje'),
+('Magia', 'Destruir', 'Lanza hechizos rompe barreras o de muerte'),
+('Apoyo', 'Efecto Añadido', 'Permite defenderte de estados (enlazado en armadura) o provocarlos (enlazado en arma)'),
+('Apoyo', 'Elemento Básico', 'Permite defenderte de elementos (enlazado en armadura) o causarlos (enlazado en arma)'),
+('Comando', 'Elemento W', 'Permite lanzar 2 elementos a la vez'),
+('Independiente', 'Enemigo alejado', 'Disminuye la tasa de combates aleatorios'),
+('Magia', 'Envenenar', 'Elemento veneno, posibilidad de envenenar al enemigo'),
+('Magia', 'Escudo', 'Podersoso hechizo de protección. Anula algunos ataques fisicos, reduce un 50% algunos y absorve el daño elemental'),
+('Invocacion', 'Fénix', 'Elemento Fuego, resucita aliados caídos'),
+('Magia', 'Fuego', 'Elemento fuego'),
+('Comando', 'Fulminar a todos', 'Permite atacar a todos los enemigos a la vez o fulminarlos del combate'),
+('Comando', 'Gesticular', 'Te permite copiar el último movimiento realizado en la batalla'),
+('Comando', 'Golpe Mortal', 'Realiza un ataque, que en caso de no fallar, realizara criticos'),
+('Magia', 'Gravedad', 'Elemento gravedad, daño proporcional'),
+('Comando', 'Habilidad Enemiga', 'Nos permite aprender habilidades de los enemigos'),
+('Invocacion', 'Hades', 'Causa estados alterados'),
+('Magia', 'Hielo', 'Elemento Hielo'),
+('Invocacion', 'Ifrit', 'Elemento fuego'),
+('Invocacion', 'Invocación Maestro', 'Permite tener todas las invocaciones en una sola materia'),
+('Comando', 'Invocación W', 'Permite invocar dos veces seguidas'),
+('Invocacion', 'Kjata', 'Elemento Fuego, Hielo, Rayo, Viento y Tierra'),
+('Comando', 'Lanzar', 'Permite lanzar elementos a los enemigos'),
+('Independiente', 'Larga fila', 'Transforma tus ataques en ataques de larga distancia'),
+('Invocacion', 'Leviatán', 'Elemento agua'),
+('Magia', 'Magia maestra', 'Permite tener todas las materias de magia en una'),
+('Comando', 'Magia W', 'Permite lanzar dos hechizos seguidos'),
+('Independiente', 'Mega todo', 'Todos los efectos en todas las acciones, para afectar a aliados o enemigos'),
+('Magia', 'Mitificar', 'Lanza hechizos de confusión o locura'),
+('Comando', 'Morfo', 'Permite transformar a un enemigo en un elemento'),
+('Invocacion', 'Neo bahamut', 'No elemental'),
+('Invocacion', 'Odín', 'Muerte, daño no elemental'),
+('Apoyo', 'Oposición Mágica', 'Contraatacas al recibir un hechizo con la magio o invocación enlazada'),
+('Independiente', 'PG por PM', 'Intercambia los valores PG y PM'),
+('Independiente', 'Prevacios', 'Aumenta la tasa de ataques críticos'),
+('Invocacion', 'Ramuh', 'Elemento rayo'),
+('Magia', 'Rayo', 'Elemento Rayo'),
+('Magia', 'Recuperar', 'Recupera PGs del objetivo'),
+('Magia', 'Revivir', 'Resucita con una cantidad de PGs, dependiendo del nivel de la materia'),
+('Comando', 'Robar', 'Permite robar objetos a los enemigos'),
+('Apoyo', 'Robo Simultáneo', 'Permite robar a la vez que se usa la materia enlazada'),
+('Magia', 'Salir', 'Permite huir de la batalla o echar al enemigo'),
+('Magia', 'Sanar', 'Lanza hechizos de curación y prevención de estados'),
+('Magia', 'Sellar', 'Lanza hechizos que adormecen o silencian al enemigo'),
+('Comando', 'Sentir', 'Te permite ver los PGs y PMs de un enemigo, asi como sus puntos débiles o fuertes'),
+('Invocacion', 'Shiva', 'Elemento hielo'),
+('Independiente', 'Subacuático', 'Permite estar bajo el agua indefinidamente, útil para la batalla contra arma esmeralda'),
+('Independiente', 'Súper exp', 'Aumenta la exp ganada'),
+('Independiente', 'Súper gil-plus', 'Aumenta los giles ganados tras la batalla'),
+('Independiente', 'Súper magia', 'Aumenta el atributo magia'),
+('Independiente', 'Súper PG', 'Aumenta los PGs'),
+('Independiente', 'Súper PM', 'Aumenta los PMs'),
+('Independiente', 'Súper suerte', 'Aumenta el atributo Suerte'),
+('Independiente', 'Súper velocidad', 'Aumenta el atributo destreza'),
+('Magia', 'Tiempo', 'Lanza hechizos prisa, lento o alto'),
+('Magia', 'Tierra', 'Elemento Tierra'),
+('Invocacion', 'Titán', 'Elemento tierra'),
+('Apoyo', 'Todos', 'Permite lanzar la magia enlazada a todos los enemigos o aliados'),
+('Magia', 'Transformar', 'Lanza hechizos rana o pequeño'),
+('Apoyo', 'Turbo PM', 'Hace mas fuerte una magia o invocación a costa de usar mas PM (dependiendo del nivel de materia)'),
+('Invocacion', 'Typhoon', 'Elementos Fuego, Hielo, Rayo y Tierra'),
+('Magia', 'Última', 'Daño no elemental muy poderoso');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `objetos`
+--
+
+CREATE TABLE IF NOT EXISTS `objetos` (
+  `nombre` varchar(100) NOT NULL,
+  `descripcion` varchar(1000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `objetos`
+--
+
+INSERT INTO `objetos` (`nombre`, `descripcion`) VALUES
+('Ala Pájaro', 'Torbellino'),
+('Antídoto', 'Cura el veneno'),
+('Antorcha Sagrada', 'Hec Mrt a enemigo'),
+('Autógrafo', 'Autógrafo de Dio'),
+('Basura Letal', 'Bio2 a enemigos'),
+('Batería', 'Puede iniciar la máquina (la compras en el Mercado Muro para ascender al Cuartel Shinra en el CD1)'),
+('Bebida Héroe', 'Una habilidad más'),
+('Bebida Velocidad', 'Da prisa'),
+('Beso Doncella', 'Cura rana'),
+('Beso Mortal', 'Daña a enemigo'),
+('Blando', 'Cura petrificación'),
+('Bomba Humo', 'Permite escapar de la batalla'),
+('Bomba T/S', 'Semi2 a un enemigo'),
+('Brazo Derecho', 'Daña a enemigos'),
+('Caldera', 'Produce Veneno, Confusión, Sueño, Silencio, Pequeño y Rana'),
+('Cañon 20 CM', 'Daño explosivo'),
+('Carpa', 'Restaura todos los PG/PM de todos los aliados (Guardar Punto).'),
+('Colirio', 'Cura oscuridad'),
+('Colmillo Dragón', 'Daño por rayo'),
+('Colmillo Fuego', 'Fuego2 a enemigos'),
+('Colmillo Vampiro', 'Absorve PG'),
+('Cornucopia', 'Cura pequeño'),
+('Cortina De Luz', 'Barrera a aliado'),
+('Cortina Lunar', 'Barrera M a aliado'),
+('Cristal Hielo', 'Hielo3 a enemigos'),
+('Diario De Combate', 'Luchas de Dio'),
+('Elixir', 'Todos los PG/PM'),
+('Empalar', 'Transforma en rana'),
+('Escamas Dragón', 'Daño por agua'),
+('Espada Masamune', 'Espada de sefirot'),
+('Espejo', 'Reflejo a aliados'),
+('Éter', '+100PM'),
+('Éter Turbo', 'Todos los PM'),
+('Fuente Espíritu', '+1 espíritu'),
+('Fuente Guardia', '+1 vitalidad'),
+('Fuente Magia', '+1 magia'),
+('Fuente Potencia', '+1 fuerza'),
+('Fuente Suerte', '+1 suerte'),
+('Fuente Velocidad', '+1 destreza'),
+('Garra Vagyrisk', 'Petrifica'),
+('Gong', 'Furia a enemigos'),
+('Granada', 'Daña al enemigo'),
+('Graviola', 'Lanza semi'),
+('Hierbas', 'Confusión a enemigos'),
+('Hiper', 'Cura tristeza'),
+('Jugador', 'Volumen 2: En Gold Saucer'),
+('M-Tentáculos', 'Bio3 a enemigos'),
+('Mano Fantasma', 'Absorve PM'),
+('Máscara Silencio', 'Silencia a enemigos'),
+('Megaelixir', 'Todos los PG/PM de todo el grupo'),
+('Mina S', 'Daña a un enemigo'),
+('Molotov', 'Daño por fuego'),
+('Nueces', 'Para aparear chocobos'),
+('Pantalla Sonora', 'Cura silencio'),
+('Pañuelo', 'Regalo de consolación'),
+('Pluma Rayo', 'Rayo2 a enemigos'),
+('Plumaje Fénix', 'Revive a un aliado'),
+('Poción', '+100PG'),
+('Poción S', '+500PG'),
+('Poción X', 'Todos los PG'),
+('Polvo Dormir', 'Sueño a enemigos'),
+('Polvo Estelar', 'Cometa2 a enemigos'),
+('Rayo Rápido', 'Rayo3 a enemigos'),
+('Reloj Arena', 'Detiene a enemigos'),
+('Remedio', 'Cura cualquier estado alterado'),
+('Secado', 'Transforma en pequeño'),
+('Soldado 1/35', 'Soldados armados de Shinra'),
+('Super Barredor', 'Máquina para proteger el reactor'),
+('Tambor Tierra', 'Tierra2 a enemigos'),
+('Telaraña', 'Ralentiza a enemigos'),
+('Tinta', 'Oscuridad a un enemigo'),
+('Tranquilizante', 'Cura furia'),
+('Vacuna', 'Previene cualquier enfermedad durante el combate'),
+('Velo Fuego', 'Fuego3 a enemigos'),
+('Verduras', 'Para cazar/alimentar Chocobos.'),
+('Viento Antártico', 'Hielo2 a enemigos');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `opiniones`
+--
+
+CREATE TABLE IF NOT EXISTS `opiniones` (
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `opinion` varchar(300) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `opiniones`
+--
+
+INSERT INTO `opiniones` (`nombre`, `email`, `opinion`, `fecha`) VALUES
+('Noemi', 'noemi_albaydar@hotmail.es', 'This is very well!!', '2014-04-29 19:30:00'),
+('Graciosillo', 'gracioso@mail.com', 'Allé vamos!', '2014-04-29 20:29:40');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personajes`
+--
+
+CREATE TABLE IF NOT EXISTS `personajes` (
+  `imagen` varchar(100) NOT NULL DEFAULT 'imagenes/ranuras/blanco.png',
+  `nombre` varchar(100) NOT NULL,
+  `edad` varchar(100) NOT NULL,
+  `ocupacion` varchar(100) NOT NULL,
+  `arma` varchar(100) NOT NULL,
+  `fechana` varchar(100) NOT NULL,
+  `lugarna` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `personajes`
+--
+
+INSERT INTO `personajes` (`imagen`, `nombre`, `edad`, `ocupacion`, `arma`, `fechana`, `lugarna`) VALUES
+('imagenes/personajes/aeris.gif', 'Aeris Gainsborough', '22', 'Florista', 'Baston', '7 Febrero', 'Pueblo Iciclos'),
+('imagenes/personajes/barret.gif', 'Barret Wallace', '35', 'Líder de Avalancha', 'Mano-arma', '15 Diciembre', 'Corel'),
+('imagenes/personajes/cait.gif', 'Cait Sith', 'Desconocida', 'Vidente', 'Megáfono', 'Desconocida', 'Desconocido'),
+('imagenes/personajes/cid.gif', 'Cid Highwind', '32', 'Aviador', 'Lanza', '22 Febrero', 'Desconocido'),
+('imagenes/personajes/cloud.gif', 'Cloud Strife', '21', 'Mercenario', 'Espada', '19 Agosto', 'Nibelheim'),
+('imagenes/personajes/red13.gif', 'Red XIII', '45', 'Bestia (roar roar and shit)', 'Bandana', 'Desconocida', 'Cañón Cosmo'),
+('imagenes/personajes/sephiroth.gif', 'Sephiroth', 'Desconocida', 'Desconocida', 'Katana', 'Desconocida', 'Desconocido'),
+('imagenes/personajes/tifa.gif', 'Tifa Lockheart', '20', 'Tabernera y miembro de Avalancha', 'Guantes', '3 Mayo', 'Nibelheim'),
+('imagenes/personajes/vincent.gif', 'Vincent Valantine', 'Desconocida', 'Desempleado', 'Pistola', '13 Octubre', 'Desconocido'),
+('imagenes/personajes/yuffie.gif', 'Yuffie Kisaragi', '16', 'Ninja, Ladr...ejem ejem', 'Armas ninja', '20 Noviembre', 'Wutai');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personajessecundarios`
+--
+
+CREATE TABLE IF NOT EXISTS `personajessecundarios` (
+  `nombre` varchar(100) NOT NULL,
+  `ocupacion` varchar(100) NOT NULL,
+  `fechana` varchar(100) NOT NULL,
+  `lugarna` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `personajessecundarios`
+--
+
+INSERT INTO `personajessecundarios` (`nombre`, `ocupacion`, `fechana`, `lugarna`) VALUES
+('Alcalde Domino', 'Alcalde de Midgar', 'Desconocida', 'Midgar'),
+('ARMA', 'Destruir destruir destruir', 'Desconocida', 'Interior del planeta'),
+('Biggs', 'Miembro de AVALANCHA', 'Desconocida', 'Suburbios sector 7'),
+('Bugenhagen', 'Anciano sabio', 'Desconocida, Tiene 130 años', 'Cañón cosmo'),
+('Dio', 'Hombre musculoso', 'Desconocida', 'Gold saucer'),
+('Don Corneo', 'Gerente de...hemmm..."Hotel"', 'Desconocida', 'Mercado muro'),
+('Dyne', 'Prisionero, Loco, Perturbado and shit', 'Desconocida', 'Corel'),
+('Eleanor', 'Esposa de Dyne', 'Desconocida', 'Corel'),
+('Elena', 'Turco', 'Desconocida', 'Midgar'),
+('Elmyra', 'Ama de casa', 'Desconocida', 'Suburbios sector 5'),
+('Ester', 'Manager de Jockeys de chocobos', 'Desconocida', 'Gold saucer'),
+('Gast', 'Científico', 'Desconocida', 'Villa nevada'),
+('Godo Kisaragi', 'Líder de Wutai', 'Desconocida', 'Wutai'),
+('Heidegger', 'Dirigente de la division de mantenimiento y orden público', 'Desconocida', 'Midgar'),
+('Holzoff y Yamski', 'Escaladores', 'Desconocida', 'Desconocido'),
+('Ifalna', '"Anciano"', 'Desconocida', 'Villa nevada'),
+('Jenova', 'Destruir and shit', 'Desconocida', 'Desconocido'),
+('Jessie', 'Miembro de AVALANCHA', 'Desconocida', 'Suburbios sector 7'),
+('Johnny', 'Viajero', 'Desconocida', 'Mercado muro'),
+('Lucrecia Crescent', 'Científica', 'Desconocida', 'Desconocido'),
+('Madre de Cloud', 'Ama de casa', 'Desconocida', 'Nibelheim'),
+('Marlene Wallace', 'Niña', 'Desconocida', 'Corel'),
+('Myrna Wallace', 'Esposa de Barret', 'Desconocida', 'Corel'),
+('Padre de Tida', 'Padre (Obvious)', 'Desconocida', 'Nibelheim'),
+('Palmer', 'Dirigente de la division espacial de Shinra Co.', 'Desconocida', 'Midgar'),
+('Piloto de Highwind', 'Piloto', 'Desconocida', 'Desconocido'),
+('Presidente de shinra', 'Presidente de Shinra Co.', 'Desconocida', 'Midgar'),
+('Priscilla', 'Niña', 'Desconocida', 'Junon'),
+('Profesor Hojo', 'Científico', 'Desconocida', 'Desconocido'),
+('Reeve', 'Dirigente de Shinra Co.', 'Desconocida', 'Midgar'),
+('Reno', 'Turco', 'Desconocida', 'Midgar'),
+('Rude', 'Turco', 'Desconocida', 'Midgar'),
+('Sabio chocobo', 'Maestro de chocobos', 'Desconocida', 'Montañas nevadas'),
+('Scarlet', 'Dirigente de la división de arma de Shinra Co.', 'Desconocida', 'Midgar'),
+('Seto', 'Guerrero', 'Desconocida', 'Cañón cosmo'),
+('Shera', 'Ingeniera', 'Desconocida', 'Ciudad cohete'),
+('Tseng', 'Líder de los Turcos', 'Desconocida', 'Midgar'),
+('Wedge', 'Miembro de AVALANCHA', 'Desconocida', 'Suburbios sector 7'),
+('Zack Fair', 'Soldado', 'Desconocida', 'Gongaga'),
+('Zangan', 'Maestro de artes marciales', 'Desconocida', 'Nibelheim');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `armas`
+--
+ALTER TABLE `armas`
+  ADD PRIMARY KEY (`nombre`), ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `canciones`
+--
+ALTER TABLE `canciones`
+  ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `nombre` (`nombre`), ADD UNIQUE KEY `mp3` (`mp3`);
+
+--
+-- Indices de la tabla `enemigos`
+--
+ALTER TABLE `enemigos`
+  ADD PRIMARY KEY (`nombre`), ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `materia`
+--
+ALTER TABLE `materia`
+  ADD PRIMARY KEY (`nombre`), ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `objetos`
+--
+ALTER TABLE `objetos`
+  ADD PRIMARY KEY (`nombre`);
+
+--
+-- Indices de la tabla `opiniones`
+--
+ALTER TABLE `opiniones`
+  ADD PRIMARY KEY (`fecha`), ADD KEY `email` (`email`), ADD KEY `email_2` (`email`);
+
+--
+-- Indices de la tabla `personajes`
+--
+ALTER TABLE `personajes`
+  ADD PRIMARY KEY (`nombre`), ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- Indices de la tabla `personajessecundarios`
+--
+ALTER TABLE `personajessecundarios`
+  ADD PRIMARY KEY (`nombre`), ADD UNIQUE KEY `nombre` (`nombre`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `canciones`
+--
+ALTER TABLE `canciones`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=86;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
