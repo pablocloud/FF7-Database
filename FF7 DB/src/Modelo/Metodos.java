@@ -1,7 +1,7 @@
 
 package Modelo;
 
-import Extensiones.RenderizadorImagenTabla;
+import Renderizadores.RenderizadorImagenTabla;
 import Hibernate.POJO.Armas;
 import Hibernate.POJO.Canciones;
 import Hibernate.POJO.Enemigos;
@@ -323,7 +323,13 @@ public class Metodos {
             modelo.addRow(datos);
         return modelo;
     }
-    
+    /**
+     * Crea el modelo de la tabla de las ranuras de un arma.
+     * @param datos
+     * Array con los datos a mostrar.
+     * @return 
+     * Devuelve un defaulttablemodel con los datos ya dentro.
+     */
     private DefaultTableModel modeloTablaRanurasArma(Object[] datos){
         DefaultTableModel modelo = new DefaultTableModel(){
             //Con esto haremos que no sea editable la tabla.

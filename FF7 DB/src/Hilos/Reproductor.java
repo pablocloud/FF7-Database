@@ -11,17 +11,29 @@ import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
 /**
+ * Esta clase contiene el hilo que es encarga de reproducir una canción.
  * @author Pablo
  */
 
 public class Reproductor extends Thread{
 
+    /**
+     * Objeto canción que usa la clase.
+     */
     private final Canciones can;
     
+    /**
+     * Constructor de la clase, recibe un objeto canción para ser reproducida.
+     * @param can 
+     * El objeto canción a usar.
+     */
     public Reproductor(Canciones can){
         this.can = can;
     }
     
+    /**
+     * Ejecuta el hilo.
+     */
     @Override
     public void run() {
         try {

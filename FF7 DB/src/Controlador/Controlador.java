@@ -1,7 +1,7 @@
 
 package Controlador;
 
-import Extensiones.RenderizadorImagenTabla;
+import Renderizadores.RenderizadorImagenTabla;
 import Hibernate.Conexion;
 import Hibernate.POJO.Armas;
 import Hibernate.POJO.Canciones;
@@ -66,6 +66,7 @@ public class Controlador {
     
     /**Constructor de controlador que recibe la vista principal.
      * @param p
+     * Objeto VistaPrincipal de la aplicacion.
      */
     
     public Controlador(VistaPrincipal p){
@@ -74,15 +75,19 @@ public class Controlador {
         m = new Metodos();
     }
     
+    /**
+     * Este metodo contendra todas las comprobaciones a tener en cuenta antes de iniciar el programa.
+     */
     public void comprobacionesIniciales(){
-        try {
-            internet = new Socket("www.google.es", 80);
+        //Con este try comprobaremos si tenemos conexión a internet.
+        //try {
+            //internet = new Socket("www.google.es", 80);
             iniciar();
-        } catch (IOException ex) {
+        /*} catch (IOException ex) {
             JOptionPane.showMessageDialog(p, "Sin internet, cerrando aplicación.");
             Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
             p.dispose();
-        }
+        }*/
     }
     
     /**
@@ -101,9 +106,10 @@ public class Controlador {
         p.listaArmas.setModel(m.modeloListaArmas(armas));
         //Asignamos el modelo a la lista de canciones.
         p.listaMusica.setModel(m.modeloListaCanciones(canciones));
-        /*Asignamos el modelo a la tabla de los personajes, también le asignamos el renderizador
-        de la imagen y su ancho y altura.
-        */
+        /**
+         * Asignamos el modelo a la tabla de los personajes, también le asignamos el renderizador
+         * de la imagen y su ancho y altura.
+         */
         p.tablaPersonajes.setModel(m.modeloTablaPersonajes(personajes));
         p.tablaPersonajes.getColumnModel().getColumn(0).setCellRenderer(new RenderizadorImagenTabla());
         p.tablaPersonajes.setRowHeight(100);
@@ -218,6 +224,7 @@ public class Controlador {
                 Font.BOLD));
                 titulo.setAlignment(Paragraph.ALIGN_CENTER);
                 pdf.add(titulo);
+                pdf.add(titulo);
                 pdf.close();
             } catch (DocumentException | FileNotFoundException ex) {
                 Logger.getLogger(Controlador.class.getName()).log(Level.SEVERE, null, ex);
@@ -239,12 +246,7 @@ public class Controlador {
      * Este método recoge toda la base de datos.
      */
     private void recogerTodo(){
-        try{
-            Conexion.getSessionFactory().openSession().close();
-        }catch (Exception e){
-            System.out.println("Sin internet.");
-            p.dispose();
-        }
+        Conexion.getSessionFactory().openSession().close();
         armas = c.recogerArmas();
         canciones = c.recogerCanciones();
         enemigos = c.recogerEnemigos();
