@@ -38,7 +38,7 @@ public class Reproductor extends Thread{
     public void run() {
         try {
             Player pl;
-            URL url = new URL("http://swimpee.eu/personal/ff7db/"+can.getMp3());
+            URL url = new URL("http://pabloverdugo.es/ff7db/"+can.getMp3());
             pl = new Player(url.openStream());
             pl.play();
         } catch (MalformedURLException | JavaLayerException ex) {
@@ -47,7 +47,4 @@ public class Reproductor extends Thread{
             Logger.getLogger(Reproductor.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
 }
