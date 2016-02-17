@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-  <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url"></property>
-    <property name="hibernate.connection.username"></property>
-    <property name="hibernate.connection.password"></property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
-    <mapping resource="Hibernate/POJO/Enemigos.hbm.xml"/>
-    <mapping resource="Hibernate/POJO/Personajessecundarios.hbm.xml"/>
-    <mapping resource="Hibernate/POJO/Personajes.hbm.xml"/>
-    <mapping resource="Hibernate/POJO/Canciones.hbm.xml"/>
-    <mapping resource="Hibernate/POJO/Materia.hbm.xml"/>
-    <mapping resource="Hibernate/POJO/Armas.hbm.xml"/>
-    <mapping resource="Hibernate/POJO/Objetos.hbm.xml"/>
-  </session-factory>
+    <session-factory>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url"></property>
+        <property name="hibernate.connection.username"></property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <mapping class="Hibernate.POJO.Enemigos"/>
+        <mapping class="Hibernate.POJO.Personajessecundarios"/>
+        <mapping class="Hibernate.POJO.Canciones"/>
+        <mapping class="Hibernate.POJO.Materia"/>
+        <mapping class="Hibernate.POJO.Armas"/>
+        <mapping class="Hibernate.POJO.Objetos"/>
+        <mapping class="Hibernate.POJO.Personajes"/>
+    </session-factory>
 </hibernate-configuration>
